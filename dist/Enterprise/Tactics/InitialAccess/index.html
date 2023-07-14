@@ -1,0 +1,1404 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>初始入口 - ATT&CK 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family="LXGW+WenKai+Screen",system-ui,"Microsoft+Yahei","Segoe+UI",-apple-system,Roboto,Ubuntu,"Helvetica+Neue",Arial,"WenQuanYi+Micro+Hei",sans-serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:""LXGW WenKai Screen",system-ui,"Microsoft Yahei","Segoe UI",-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,"WenQuanYi Micro Hei",sans-serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-header__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATT&CK 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              初始入口
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        ATT&CK
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Reconnaissance/" class="md-tabs__link md-tabs__link--active">
+        Tactics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-nav__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ATT&CK 中文版
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">ATT&CK</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="ATT&CK" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ATT&CK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">Tactics</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tactics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tactics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">侦察目标</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侦察目标" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          侦察目标
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../ResourceDevelopment/">资源准备</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源准备" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          资源准备
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">初始入口</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="初始入口" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          初始入口
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Execution/">执行攻击</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="执行攻击" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          执行攻击
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Persistence/">持续控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="持续控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          持续控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../PrivilegeEscalation/">权限提升</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="权限提升" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          权限提升
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../DefenseEvasion/">防御规避</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="防御规避" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          防御规避
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CredentialAccess/">凭据访问</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="凭据访问" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          凭据访问
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Discovery/">环境观察</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="环境观察" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          环境观察
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../LateralMovement/">横向移动</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="横向移动" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          横向移动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Collection/">收集信息</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="收集信息" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          收集信息
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CommandandControl/">命令与控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="命令与控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          命令与控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Exfiltration/">窃取数据</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="窃取数据" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          窃取数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Impact/">侵害破坏</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侵害破坏" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          侵害破坏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    技术： 9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques-9" class="md-nav__link">
+    Techniques: 9
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">初始入口</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">初始入口</label><label for="__tabbed_1_2">Initial Access</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>攻击者正试图进入您的网络。</strong></p>
+<p>初始访问包括使用各种入口向量在网络中获得初始立足点的技术。用于站稳脚跟的技术包括有针对性的鱼叉式网络钓鱼和利用面向公众的 Web 服务器上的弱点。通过初始访问获得的立足点可能允许继续访问，例如有效帐户和使用外部远程服务，或者可能由于更改密码而受到限制使用。</p>
+<h2 id="9">技术： 9</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>名字</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1189">T1189</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1189">偷渡式妥协</a></td>
+<td>攻击者可以通过用户在正常浏览过程中访问网站来访问系统。使用此技术，用户的 Web 浏览器通常成为攻击目标，但攻击者也可能使用受感染的网站进行非利用行为，例如获取<a href="https://attack.mitre.org/techniques/T1550/001">应用程序访问令牌</a>。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1190">T1190</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1190">利用面向公众的应用程序</a></td>
+<td>攻击者可能会尝试利用面向 Internet 的主机或系统中的弱点来初始访问网络。系统中的弱点可能是软件错误、临时故障或配置错误。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1133">T1133</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1133">外部远程服务</a></td>
+<td>攻击者可能会利用面向外部的远程服务来最初访问和/或保留在网络中。远程服务（如 VPN、Citrix 和其他访问机制）允许用户从外部位置连接到内部企业网络资源。通常有远程服务网关来管理这些服务的连接和凭据身份验证。<a href="https://attack.mitre.org/techniques/T1021/006">Windows远程管理和</a><a href="https://attack.mitre.org/techniques/T1021/005">VNC</a>等服务也可以在外部使用。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1200">T1200</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1200">硬件添加</a></td>
+<td>攻击者可能会将计算机配件、网络硬件或其他计算设备引入系统或网络中，这些设备可用作获取访问权限的载体。不仅仅是通过可移动存储连接和分发有效负载（即<a href="https://attack.mitre.org/techniques/T1091">通过可移动媒体复制</a>），更强大的硬件添加可用于将新功能和/或特性引入系统，然后可能会被滥用。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1566">T1566</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566">网络钓鱼</a></td>
+<td>攻击者可能会发送网络钓鱼消息以访问受害系统。所有形式的网络钓鱼都是以电子方式提供的社交工程。网络钓鱼可以成为目标，称为鱼叉式网络钓鱼。在鱼叉式网络钓鱼中，特定的个人、公司或行业将成为攻击者的目标。更一般地说，攻击者可以执行非定向网络钓鱼，例如在大规模恶意软件垃圾邮件活动中。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/001">鱼叉式网络钓鱼附件</a></td>
+<td>攻击者可能会发送带有恶意附件的鱼叉式网络钓鱼电子邮件，以试图访问受害系统。鱼叉式网络钓鱼附件是鱼叉式网络钓鱼的一种特定变体。鱼叉式网络钓鱼附件与其他形式的鱼叉式网络钓鱼不同，因为它使用附加到电子邮件的恶意软件。所有形式的鱼叉式网络钓鱼都是针对特定个人、公司或行业的电子社会工程。在这种情况下，攻击者将文件附加到鱼叉式网络钓鱼电子邮件，并且通常依靠用户执行来获得<a href="https://attack.mitre.org/techniques/T1204">执行</a>。鱼叉式网络钓鱼还可能涉及社会工程技术，例如伪装成受信任的来源。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/002">鱼叉式网络钓鱼链接</a></td>
+<td>攻击者可能会发送带有恶意链接的鱼叉式网络钓鱼电子邮件，以试图访问受害者系统。带有链接的鱼叉式网络钓鱼是鱼叉式网络钓鱼的一种特定变体。它与其他形式的鱼叉式网络钓鱼的不同之处在于，它使用链接来下载电子邮件中包含的恶意软件，而不是将恶意文件附加到电子邮件本身，以避免可能检查电子邮件附件的防御措施。鱼叉式网络钓鱼还可能涉及社会工程技术，例如伪装成受信任的来源。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/003">通过服务进行鱼叉式网络钓鱼</a></td>
+<td>攻击者可能会通过第三方服务发送鱼叉式网络钓鱼消息，以试图访问受害者系统。通过服务进行的鱼叉式网络钓鱼是鱼叉式网络钓鱼的一种特定变体。它与其他形式的鱼叉式网络钓鱼的不同之处在于，它使用第三方服务，而不是直接通过企业电子邮件渠道。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1091">T1091</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1091">通过可移动媒体进行复制</a></td>
+<td>攻击者可能会通过将恶意软件复制到可移动媒体并在媒体插入系统并执行时利用自动运行功能来移动到系统（可能是断开连接或气隙网络中的系统）。在横向移动的情况下，这可能是通过修改存储在可移动媒体上的可执行文件或通过复制恶意软件并将其重命名为合法文件来诱骗用户在单独的系统上执行它来实现的。在初始访问的情况下，这可能是通过手动操作介质、修改用于初始格式化介质的系统或修改介质固件本身来实现的。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1195">T1195</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195">供应链妥协</a></td>
+<td>攻击者可能会在最终消费者收到产品或产品交付机制之前操纵产品或产品交付机制，以达到数据或系统破坏的目的。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/001">破坏软件依赖关系和开发工具</a></td>
+<td>攻击者可能会在最终消费者收到软件依赖项和开发工具之前操纵软件依赖项和开发工具，以达到数据或系统泄露的目的。应用程序通常依赖于外部软件才能正常运行。在许多应用程序中用作依赖项的流行开源项目可能被定位为向依赖项用户添加恶意代码的一种手段。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/002">妥协软件供应链</a></td>
+<td>攻击者可能会在最终消费者收到应用程序软件之前操纵应用程序软件，以达到数据或系统破坏的目的。软件的供应链妥协可以通过多种方式进行，包括操作应用程序源代码、操作该软件的更新/分发机制，或用修改后的版本替换编译的版本。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/003">妥协硬件供应链</a></td>
+<td>攻击者可能会在最终消费者收到产品之前操纵产品中的硬件组件，以达到数据或系统泄露的目的。通过修改供应链中的硬件或固件，攻击者可以将后门插入可能难以检测的消费者网络，并使对手对系统具有高度的控制。硬件后门可以插入到各种设备中，例如服务器、工作站、网络基础结构或外围设备。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1199">T1199</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1199">信任关系</a></td>
+<td>攻击者可能会破坏或以其他方式利用有权接触预期受害者的组织。通过受信任的第三方关系进行的访问滥用了可能不受保护或受到的审查少于获得网络访问的标准机制的现有连接。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1078">T1078</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078">有效帐户</a></td>
+<td>攻击者可能会获取和滥用现有帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。泄露的凭据可用于绕过对网络中系统上各种资源的访问控制，甚至可用于对远程系统和外部可用服务（如 VPN、Outlook Web 访问、网络设备和远程桌面）的持久访问。泄露的凭据还可能授予攻击者对特定系统或访问网络受限区域的更多权限。攻击者可以选择不将恶意软件或工具与这些凭据提供的合法访问权限结合使用，以使其更难检测到它们的存在。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">默认帐户</a></td>
+<td>攻击者可能会获取和滥用默认帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。默认帐户是内置于操作系统中的帐户，例如 Windows 系统上的来宾或管理员帐户。默认账户还包括其他类型的系统、软件或设备上的默认工厂/提供商集账户，包括 AWS 中的根用户账户和 Kubernetes 中的默认服务账户。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">域帐户</a></td>
+<td>攻击者可能会获取和滥用域帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。域帐户是由 Active Directory 域服务管理的帐户，其中访问和权限是在属于该域的系统和服务之间配置的。域帐户可以涵盖用户、管理员和服务。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">本地帐户</a></td>
+<td>攻击者可能会获取和滥用本地帐户的凭据，作为获取初始访问、持久性、权限提升或防御规避的一种手段。本地帐户是由组织配置的帐户，供用户、远程支持、服务使用或在单个系统或服务上进行管理。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">云帐户</a></td>
+<td>攻击者可能会获取和滥用云帐户的凭据，作为获取初始访问、持久性、权限提升或防御规避的一种手段。云帐户是由组织创建和配置的帐户，供用户、远程支持、服务使用，或用于管理云服务提供商或 SaaS 应用程序中的资源。在某些情况下，云帐户可能与传统的身份管理系统（如 Windows Active Directory）联合。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>The adversary is trying to get into your network.</p>
+<p>Initial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords.</p>
+<h2 id="techniques-9">Techniques: 9</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1189">T1189</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1189">Drive-by Compromise</a></td>
+<td>Adversaries may gain access to a system through a user visiting a website over the normal course of browsing. With this technique, the user's web browser is typically targeted for exploitation, but adversaries may also use compromised websites for non-exploitation behavior such as acquiring <a href="https://attack.mitre.org/techniques/T1550/001">Application Access Token</a>.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1190">T1190</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1190">Exploit Public-Facing Application</a></td>
+<td>Adversaries may attempt to exploit a weakness in an Internet-facing host or system to initially access a network. The weakness in the system can be a software bug, a temporary glitch, or a misconfiguration.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1133">T1133</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1133">External Remote Services</a></td>
+<td>Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. There are often remote service gateways that manage connections and credential authentication for these services. Services such as <a href="https://attack.mitre.org/techniques/T1021/006">Windows Remote Management</a> and <a href="https://attack.mitre.org/techniques/T1021/005">VNC</a> can also be used externally.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1200">T1200</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1200">Hardware Additions</a></td>
+<td>Adversaries may introduce computer accessories, networking hardware, or other computing devices into a system or network that can be used as a vector to gain access. Rather than just connecting and distributing payloads via removable storage (i.e. <a href="https://attack.mitre.org/techniques/T1091">Replication Through Removable Media</a>), more robust hardware additions can be used to introduce new functionalities and/or features into a system that can then be abused.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1566">T1566</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566">Phishing</a></td>
+<td>Adversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/001">Spearphishing Attachment</a></td>
+<td>Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems. Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon <a href="https://attack.mitre.org/techniques/T1204">User Execution</a> to gain execution. Spearphishing may also involve social engineering techniques, such as posing as a trusted source.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/002">Spearphishing Link</a></td>
+<td>Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems. Spearphishing with a link is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of links to download malware contained in email, instead of attaching malicious files to the email itself, to avoid defenses that may inspect email attachments. Spearphishing may also involve social engineering techniques, such as posing as a trusted source.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1566/003">Spearphishing via Service</a></td>
+<td>Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems. Spearphishing via service is a specific variant of spearphishing. It is different from other forms of spearphishing in that it employs the use of third party services rather than directly via enterprise email channels.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1091">T1091</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1091">Replication Through Removable Media</a></td>
+<td>Adversaries may move onto systems, possibly those on disconnected or air-gapped networks, by copying malware to removable media and taking advantage of Autorun features when the media is inserted into a system and executes. In the case of Lateral Movement, this may occur through modification of executable files stored on removable media or by copying malware and renaming it to look like a legitimate file to trick users into executing it on a separate system. In the case of Initial Access, this may occur through manual manipulation of the media, modification of systems used to initially format the media, or modification to the media's firmware itself.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1195">T1195</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195">Supply Chain Compromise</a></td>
+<td>Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/001">Compromise Software Dependencies and Development Tools</a></td>
+<td>Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise. Applications often depend on external software to function properly. Popular open source projects that are used as dependencies in many applications may be targeted as a means to add malicious code to users of the dependency.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/002">Compromise Software Supply Chain</a></td>
+<td>Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise. Supply chain compromise of software can take place in a number of ways, including manipulation of the application source code, manipulation of the update/distribution mechanism for that software, or replacing compiled releases with a modified version.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1195/003">Compromise Hardware Supply Chain</a></td>
+<td>Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise. By modifying hardware or firmware in the supply chain, adversaries can insert a backdoor into consumer networks that may be difficult to detect and give the adversary a high degree of control over the system. Hardware backdoors may be inserted into various devices, such as servers, workstations, network infrastructure, or peripherals.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1199">T1199</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1199">Trusted Relationship</a></td>
+<td>Adversaries may breach or otherwise leverage organizations who have access to intended victims. Access through trusted third party relationship abuses an existing connection that may not be protected or receives less scrutiny than standard mechanisms of gaining access to a network.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1078">T1078</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078">Valid Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Compromised credentials may be used to bypass access controls placed on various resources on systems within the network and may even be used for persistent access to remote systems and externally available services, such as VPNs, Outlook Web Access, network devices, and remote desktop. Compromised credentials may also grant an adversary increased privilege to specific systems or access to restricted areas of the network. Adversaries may choose not to use malware or tools in conjunction with the legitimate access those credentials provide to make it harder to detect their presence.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">Default Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems. Default accounts also include default factory/provider set accounts on other types of systems, software, or devices, including the root user account in AWS and the default service account in Kubernetes.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">Domain Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover users, administrators, and services.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">Local Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">Cloud Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a cloud account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application. In some cases, cloud accounts may be federated with traditional identity management systems, such as Windows Active Directory.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../ResourceDevelopment/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 资源开发" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              资源开发
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Execution/" class="md-footer__link md-footer__link--next" aria-label="下一页: 执行攻击" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              执行攻击
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1392 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>窃取数据 - ATT&CK 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family="LXGW+WenKai+Screen",system-ui,"Microsoft+Yahei","Segoe+UI",-apple-system,Roboto,Ubuntu,"Helvetica+Neue",Arial,"WenQuanYi+Micro+Hei",sans-serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:""LXGW WenKai Screen",system-ui,"Microsoft Yahei","Segoe UI",-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,"WenQuanYi Micro Hei",sans-serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-header__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATT&CK 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              窃取数据
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        ATT&CK
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Reconnaissance/" class="md-tabs__link md-tabs__link--active">
+        Tactics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-nav__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ATT&CK 中文版
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">ATT&CK</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="ATT&CK" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ATT&CK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">Tactics</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tactics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tactics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">侦察目标</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侦察目标" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          侦察目标
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../ResourceDevelopment/">资源准备</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源准备" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          资源准备
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../InitialAccess/">初始入口</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="初始入口" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          初始入口
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Execution/">执行攻击</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="执行攻击" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          执行攻击
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Persistence/">持续控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="持续控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          持续控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../PrivilegeEscalation/">权限提升</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="权限提升" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          权限提升
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../DefenseEvasion/">防御规避</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="防御规避" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          防御规避
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CredentialAccess/">凭据访问</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="凭据访问" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          凭据访问
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Discovery/">环境观察</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="环境观察" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          环境观察
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../LateralMovement/">横向移动</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="横向移动" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          横向移动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Collection/">收集信息</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="收集信息" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          收集信息
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CommandandControl/">命令与控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="命令与控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          命令与控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">窃取数据</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="窃取数据" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          窃取数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Impact/">侵害破坏</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侵害破坏" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          侵害破坏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    技术： 9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques-9" class="md-nav__link">
+    Techniques: 9
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">窃取数据</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">窃取数据</label><label for="__tabbed_1_2">Exfiltration</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>攻击者试图窃取数据。</strong></p>
+<p>渗透包括攻击者可能用来从您的网络中窃取数据的技术。一旦他们收集了数据，对手通常会打包它以避免在删除数据时被发现。这可能包括压缩和加密。从目标网络获取数据的技术通常包括通过其命令和控制信道或备用信道传输数据，还可能包括对传输设置大小限制。</p>
+<h2 id="9">技术： 9</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>名字</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1020">T1020</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1020">自动渗透</a></td>
+<td>攻击者可能会在收集期间收集数据后，通过使用自动处理来泄露数据，例如敏感文档。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1020/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1020/001">流量重复</a></td>
+<td>攻击者可能会利用流量镜像来自动通过受损基础设施进行数据泄露。流量镜像是某些设备的本机功能，通常用于网络分析。例如，设备可以被配置为将网络流量转发到一个或多个目的地，以便由网络分析器或其他监视设备进行分析。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1030">T1030</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1030">数据传输大小限制</a></td>
+<td>攻击者可能会以固定大小的块而不是整个文件的形式泄露数据，或者将数据包大小限制在特定阈值以下。此方法可用于避免触发网络数据传输阈值警报。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1048">T1048</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048">替代协议的渗透</a></td>
+<td>攻击者可以通过与现有命令和控制通道不同的协议泄露数据来窃取数据。数据也可以从主命令和控制服务器发送到备用网络位置。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/001">通过对称加密非 C2 协议的渗透</a></td>
+<td>攻击者可以通过对称加密的网络协议（而不是现有命令和控制通道的协议）来窃取数据。数据也可以从主命令和控制服务器发送到备用网络位置。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/002">通过非对称加密非 C2 协议进行渗透</a></td>
+<td>攻击者可以通过非对称加密的网络协议（而不是现有命令和控制通道的协议）泄露数据来窃取数据。数据也可以从主命令和控制服务器发送到备用网络位置。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/003">通过未加密的非 C2 协议进行渗透</a></td>
+<td>攻击者可以通过未加密的网络协议（而不是现有命令和控制通道的网络协议）窃取数据来窃取数据。数据也可以从主命令和控制服务器发送到备用网络位置。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1041">T1041</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1041">通过 C2 通道渗出</a></td>
+<td>攻击者可以通过现有的命令和控制通道泄露数据来窃取数据。被盗数据使用与命令和控制通信相同的协议编码到正常通信通道中。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1011">T1011</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1011">通过其他网络介质进行外泄</a></td>
+<td>攻击者可能会尝试通过与命令和控制通道不同的网络介质泄露数据。如果命令和控制网络是有线互联网连接，则可能会发生外泄，例如，通过 WiFi 连接、调制解调器、蜂窝数据连接、蓝牙或其他射频 （RF） 通道。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1011/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1011/001">通过蓝牙渗透</a></td>
+<td>攻击者可能会尝试通过蓝牙而不是命令和控制通道泄露数据。如果命令和控制网络是有线互联网连接，则攻击者可能会选择使用蓝牙通信通道泄露数据。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1052">T1052</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1052">物理介质上的渗漏</a></td>
+<td>攻击者可能会尝试通过物理介质（如可移动驱动器）泄露数据。在某些情况下，例如气隙网络入侵，可能会通过用户引入的物理介质或设备发生外泄。此类媒体可以是外部硬盘驱动器、USB 驱动器、手机、MP3 播放器或其他可移动存储和处理设备。物理介质或设备可以用作最终的渗透点，也可以在其他断开连接的系统之间跳跃。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1052/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1052/001">通过 USB 进行渗透</a></td>
+<td>攻击者可能会尝试通过 USB 连接的物理设备泄露数据。在某些情况下，例如气隙网络入侵，可能会通过用户引入的 USB 设备发生外泄。USB 设备可用作最终的渗透点，或在断开连接的系统之间跳跃。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1567">T1567</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567">通过 Web 服务进行渗透</a></td>
+<td>攻击者可能会使用现有的合法外部 Web 服务来泄露数据，而不是其主要命令和控制通道。充当外泄机制的常用 Web 服务可能会提供大量覆盖，因为网络中的主机在遭到入侵之前可能已经与它们通信。防火墙规则也可能已经存在，以允许流向这些服务的流量。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/001">渗透到代码存储库</a></td>
+<td>攻击者可能会将数据泄露到代码存储库，而不是通过其主要命令和控制通道。代码存储库通常可通过 API 访问（例如：https://api.github.com）。对这些 API 的访问通常通过 HTTPS 进行，这为攻击者提供了额外的保护级别。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/002">渗透到云存储</a></td>
+<td>攻击者可能会将数据泄露到云存储服务，而不是通过其主要命令和控制通道。云存储服务允许通过互联网从远程云存储服务器存储、编辑和检索数据。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/003">渗透到文本存储网站</a></td>
+<td>攻击者可能会将数据泄露到文本存储站点，而不是其主要命令和控制通道。文本存储站点（如 ）通常被开发人员用来共享代码和其他信息。<code>pastebin[.]com</code></td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1029">T1029</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1029">定时接送</a></td>
+<td>攻击者可能会安排仅在一天中的特定时间或特定时间间隔执行数据泄露。这可以将流量模式与正常活动或可用性混合在一起。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1537">T1537</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1537">将数据传输到云帐户</a></td>
+<td>攻击者可能会通过将数据（包括云环境的备份）传输到他们在同一服务上控制的另一个云帐户来泄露数据，以避免典型的文件传输/下载和基于网络的泄露检测。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>The adversary is trying to steal data.</p>
+<p>Exfiltration consists of techniques that adversaries may use to steal data from your network. Once they’ve collected data, adversaries often package it to avoid detection while removing it. This can include compression and encryption. Techniques for getting data out of a target network typically include transferring it over their command and control channel or an alternate channel and may also include putting size limits on the transmission.</p>
+<h2 id="techniques-9">Techniques: 9</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1020">T1020</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1020">Automated Exfiltration</a></td>
+<td>Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1020/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1020/001">Traffic Duplication</a></td>
+<td>Adversaries may leverage traffic mirroring in order to automate data exfiltration over compromised infrastructure. Traffic mirroring is a native feature for some devices, often used for network analysis. For example, devices may be configured to forward network traffic to one or more destinations for analysis by a network analyzer or other monitoring device.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1030">T1030</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1030">Data Transfer Size Limits</a></td>
+<td>An adversary may exfiltrate data in fixed size chunks instead of whole files or limit packet sizes below certain thresholds. This approach may be used to avoid triggering network data transfer threshold alerts.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1048">T1048</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048">Exfiltration Over Alternative Protocol</a></td>
+<td>Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/001">Exfiltration Over Symmetric Encrypted Non-C2 Protocol</a></td>
+<td>Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/002">Exfiltration Over Asymmetric Encrypted Non-C2 Protocol</a></td>
+<td>Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1048/003">Exfiltration Over Unencrypted Non-C2 Protocol</a></td>
+<td>Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1041">T1041</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1041">Exfiltration Over C2 Channel</a></td>
+<td>Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1011">T1011</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1011">Exfiltration Over Other Network Medium</a></td>
+<td>Adversaries may attempt to exfiltrate data over a different network medium than the command and control channel. If the command and control network is a wired Internet connection, the exfiltration may occur, for example, over a WiFi connection, modem, cellular data connection, Bluetooth, or another radio frequency (RF) channel.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1011/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1011/001">Exfiltration Over Bluetooth</a></td>
+<td>Adversaries may attempt to exfiltrate data over Bluetooth rather than the command and control channel. If the command and control network is a wired Internet connection, an adversary may opt to exfiltrate data using a Bluetooth communication channel.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1052">T1052</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1052">Exfiltration Over Physical Medium</a></td>
+<td>Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a physical medium or device introduced by a user. Such media could be an external hard drive, USB drive, cellular phone, MP3 player, or other removable storage and processing device. The physical medium or device could be used as the final exfiltration point or to hop between otherwise disconnected systems.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1052/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1052/001">Exfiltration over USB</a></td>
+<td>Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user. The USB device could be used as the final exfiltration point or to hop between otherwise disconnected systems.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1567">T1567</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567">Exfiltration Over Web Service</a></td>
+<td>Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. Popular Web services acting as an exfiltration mechanism may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to compromise. Firewall rules may also already exist to permit traffic to these services.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/001">Exfiltration to Code Repository</a></td>
+<td>Adversaries may exfiltrate data to a code repository rather than over their primary command and control channel. Code repositories are often accessible via an API (ex: https://api.github.com). Access to these APIs are often over HTTPS, which gives the adversary an additional level of protection.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/002">Exfiltration to Cloud Storage</a></td>
+<td>Adversaries may exfiltrate data to a cloud storage service rather than over their primary command and control channel. Cloud storage services allow for the storage, edit, and retrieval of data from a remote cloud storage server over the Internet.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1567/003">Exfiltration to Text Storage Sites</a></td>
+<td>Adversaries may exfiltrate data to text storage sites instead of their primary command and control channel. Text storage sites, such as <code>pastebin[.]com</code>, are commonly used by developers to share code and other information.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1029">T1029</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1029">Scheduled Transfer</a></td>
+<td>Adversaries may schedule data exfiltration to be performed only at certain times of day or at certain intervals. This could be done to blend traffic patterns with normal activity or availability.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1537">T1537</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1537">Transfer Data to Cloud Account</a></td>
+<td>Adversaries may exfiltrate data by transferring the data, including backups of cloud environments, to another cloud account they control on the same service to avoid typical file transfers/downloads and network-based exfiltration detection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../CommandandControl/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 命令与控制" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              命令与控制
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Impact/" class="md-footer__link md-footer__link--next" aria-label="下一页: 侵害破坏" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              侵害破坏
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>
