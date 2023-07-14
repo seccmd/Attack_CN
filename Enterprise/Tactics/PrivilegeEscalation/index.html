@@ -1,0 +1,2342 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>权限提升 - ATT&CK 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family="LXGW+WenKai+Screen",system-ui,"Microsoft+Yahei","Segoe+UI",-apple-system,Roboto,Ubuntu,"Helvetica+Neue",Arial,"WenQuanYi+Micro+Hei",sans-serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:""LXGW WenKai Screen",system-ui,"Microsoft Yahei","Segoe UI",-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,"WenQuanYi Micro Hei",sans-serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-header__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATT&CK 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              权限提升
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        ATT&CK
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Reconnaissance/" class="md-tabs__link md-tabs__link--active">
+        Tactics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ATT&amp;CK 中文版" class="md-nav__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ATT&CK 中文版
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">ATT&CK</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="ATT&CK" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ATT&CK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">Tactics</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tactics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tactics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Reconnaissance/">侦察目标</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侦察目标" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          侦察目标
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../ResourceDevelopment/">资源准备</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源准备" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          资源准备
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../InitialAccess/">初始入口</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="初始入口" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          初始入口
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Execution/">执行攻击</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="执行攻击" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          执行攻击
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Persistence/">持续控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="持续控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          持续控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">权限提升</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="权限提升" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          权限提升
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../DefenseEvasion/">防御规避</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="防御规避" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          防御规避
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CredentialAccess/">凭据访问</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="凭据访问" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          凭据访问
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Discovery/">环境观察</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="环境观察" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          环境观察
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../LateralMovement/">横向移动</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="横向移动" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          横向移动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Collection/">收集信息</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="收集信息" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          收集信息
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../CommandandControl/">命令与控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="命令与控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          命令与控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Exfiltration/">窃取数据</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="窃取数据" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          窃取数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Impact/">侵害破坏</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侵害破坏" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          侵害破坏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    技术： 13
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques-13" class="md-nav__link">
+    Techniques: 13
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">权限提升</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">权限提升</label><label for="__tabbed_1_2">Privilege Escalation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>攻击者正在尝试获取更高级别的权限。</strong></p>
+<p>权限提升包括攻击者用来在系统或网络上获得更高级别权限的技术。攻击者通常可以进入和探索具有非特权访问权限的网络，但需要提升的权限才能实现其目标。常见的方法是利用系统弱点、配置错误和漏洞。提升的访问权限示例包括：</p>
+<ul>
+<li>系统/根级别</li>
+<li>本地管理员</li>
+<li>具有类似管理员访问权限的用户帐户</li>
+<li>有权访问特定系统或执行特定功能的用户帐户</li>
+</ul>
+<p>这些技术通常与持久性技术重叠，因为允许对手持续存在的操作系统功能可以在提升的上下文中执行。</p>
+<h2 id="13">技术： 13</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>名字</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1548">T1548</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548">滥用提升控制机制</a></td>
+<td>攻击者可能会绕过旨在控制提升权限的机制，以获得更高级别的权限。大多数现代系统都包含本机高程控制机制，旨在限制用户可以在计算机上执行的权限。必须向特定用户授予授权才能执行可能被认为具有较高风险的任务。攻击者可以执行多种方法来利用内置控制机制来提升系统上的权限。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/001">塞图伊德和塞吉德</a></td>
+<td>攻击者可能会滥用应用程序设置了 setuid 或 setgid 位的配置，以便让代码在不同的（可能更具特权的）用户的上下文中运行。在 Linux 或 macOS 上，当为应用程序二进制文件设置 setuid 或 setgid 位时，应用程序将分别以拥有用户或组的权限运行。通常，应用程序在当前用户的上下文中运行，而不管哪个用户或组拥有该应用程序。但是，在某些情况下，程序需要在提升的上下文中执行才能正常运行，但运行它们的用户可能没有特定的必需权限。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/002">绕过用户帐户控制</a></td>
+<td>攻击者可能会绕过 UAC 机制来提升系统上的进程权限。Windows 用户帐户控制 （UAC） 允许程序提升其权限（跟踪为从低到高的完整性级别），以在管理员级别权限下执行任务，可能通过提示用户进行确认。对用户的影响范围从在高强制下拒绝操作到允许用户在本地管理员组中执行操作并单击提示，或者允许他们输入管理员密码以完成操作。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/003">须藤和须藤缓存</a></td>
+<td>攻击者可以执行 sudo 缓存和/或使用 sudoers 文件来提升权限。攻击者可以这样做以其他用户的身份执行命令或生成具有更高权限的进程。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/004">提升执行与提示</a></td>
+<td>攻击者可以利用 API 通过提示用户输入凭据来提升权限。此 API 的目的是为应用程序开发人员提供一种使用 root 权限执行操作的简单方法，例如应用程序安装或更新。此 API 不会验证请求根权限的程序是否来自信誉良好的来源或已被恶意修改。<code>AuthorizationExecuteWithPrivileges</code></td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1134">T1134</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134">访问令牌操作</a></td>
+<td>攻击者可以修改访问令牌以在不同的用户或系统安全上下文下操作，以执行操作并绕过访问控制。Windows 使用访问令牌来确定正在运行的进程的所有权。用户可以操作访问令牌，使正在运行的进程看起来好像是其他进程的子进程，或者属于启动进程的用户以外的其他人。发生这种情况时，该进程还会采用与新令牌关联的安全上下文。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/001">令牌冒充/盗窃</a></td>
+<td>攻击者可能会复制然后模拟其他用户的现有令牌，以提升权限并绕过访问控制。例如，攻击者可以使用 或 复制现有令牌。然后，可以将令牌用于允许调用线程模拟登录用户的安全上下文，或将模拟的令牌分配给线程。<code>DuplicateToken``DuplicateTokenEx``ImpersonateLoggedOnUser``SetThreadToken</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/002">使用令牌创建流程</a></td>
+<td>攻击者可能会使用现有令牌创建新进程，以提升权限并绕过访问控制。可以使用 和 等功能使用其他用户的令牌和生成的安全上下文创建进程。<code>CreateProcessWithTokenW``runas</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/003">制作和模拟令牌</a></td>
+<td>攻击者可能会创建新令牌并模拟用户以提升权限并绕过访问控制。例如，如果攻击者具有用户名和密码，但用户未登录到系统，则攻击者可以使用该函数为用户创建登录会话。该函数将返回新会话的访问令牌的副本，攻击者可以使用该令牌将令牌分配给线程。<code>LogonUser``SetThreadToken</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/004">父 PID 欺骗</a></td>
+<td>攻击者可能会欺骗新进程的父进程标识符 （PPID），以逃避进程监视防御或提升权限。除非明确指定，否则新进程通常直接从其父进程或调用进程生成。显式分配新进程的 PPID 的一种方法是通过 API 调用，该调用支持定义要使用的 PPID 的参数。Windows 功能（如用户帐户控制 （UAC））使用此功能在系统（通常通过 或）而不是当前用户上下文生成请求的提升进程后正确设置 PPID。<code>CreateProcess``svchost.exe``consent.exe</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/005">SID 历史注入</a></td>
+<td>攻击者可以使用 SID 历史记录注入来提升权限并绕过访问控制。Windows 安全标识符 （SID） 是标识用户帐户或组帐户的唯一值。Windows 安全性在安全描述符和访问令牌中使用 SID。一个帐户可以在SID-History Active Directory属性中保存其他SID，允许域之间的可互操作帐户迁移（例如，SID-History中的所有值都包含在访问令牌中）。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1547">T1547</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547">启动或登录自动启动执行</a></td>
+<td>攻击者可以将系统设置配置为在系统启动或登录期间自动执行程序，以保持持久性或在受感染系统上获得更高级别的权限。操作系统可能具有在系统启动或帐户登录时自动运行程序的机制。这些机制可能包括自动执行放置在专门指定的目录中或由存储配置信息的存储库（如 Windows 注册表）引用的程序。攻击者可以通过修改或扩展内核的功能来实现相同的目标。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/001">注册表运行项/启动文件夹</a></td>
+<td>攻击者可以通过将程序添加到启动文件夹或使用注册表运行键引用它来实现持久性。将条目添加到注册表或启动文件夹中的“运行键”将导致引用的程序在用户登录时执行。这些程序将在用户的上下文中执行，并将具有帐户的关联权限级别。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/002">身份验证包</a></td>
+<td>攻击者可能会滥用身份验证包在系统启动时执行 DLL。Windows 身份验证包 DLL 在系统启动时由本地安全机构 （LSA） 进程加载。它们为操作系统的多个登录进程和多个安全协议提供支持。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/003">时间提供者</a></td>
+<td>攻击者可能会滥用时间提供程序在系统启动时执行 DLL。Windows 时间服务 （W32Time） 支持跨域和域内的时间同步。W32time时间提供程序负责从硬件/网络资源中检索时间戳，并将这些值输出到其他网络客户端。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/004">Winlogon Helper DLL</a></td>
+<td>攻击者可能会滥用 Winlogon 的功能在用户登录时执行 DLL 和/或可执行文件。Winlogon.exe是一个Windows组件，负责登录/注销时的操作以及由Ctrl-Alt-Delete触发的安全注意序列（SAS）。中的注册表项，用于管理支持 Winlogon 的其他帮助程序和功能。<code>HKLM\Software[\Wow6432Node\]\Microsoft\Windows NT\CurrentVersion\Winlogon\``HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/005">安全支持提供商</a></td>
+<td>攻击者可能会滥用安全支持提供程序 （SSP） 在系统启动时执行 DLL。Windows SSP DLL 在系统启动时加载到本地安全机构 （LSA） 进程中。加载到 LSA 后，SSP DLL 可以访问存储在 Windows 中的加密和纯文本密码，例如任何登录用户的域密码或智能卡 PIN。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/006">内核模块和扩展</a></td>
+<td>攻击者可能会修改内核以在系统引导时自动执行程序。可加载内核模块 （LKM） 是可以根据需要加载和卸载到内核中的代码片段。它们扩展了内核的功能，而无需重新启动系统。例如，一种类型的模块是设备驱动程序，它允许内核访问连接到系统的硬件。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/007">重新打开的应用程序</a></td>
+<td>攻击者可能会修改 plist 文件，以便在用户登录时自动运行应用程序。当用户通过 macOS 图形用户界面 （GUI） 注销或重新启动时，会向用户提供提示，其中包含“重新登录时重新打开窗口”复选框。选中此选项后，当前打开的所有应用程序都将添加到目录中命名的属性列表文件中。此文件中列出的应用程序将在用户下次登录时自动重新打开。<code>com.apple.loginwindow.[UUID].plist``~/Library/Preferences/ByHost</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/008">LSASS 驱动程序</a></td>
+<td>攻击者可能会修改或添加 LSASS 驱动程序，以便在受感染的系统上获得持久性。Windows 安全子系统是一组组件，用于管理和强制实施计算机或域的安全策略。本地安全机构 （LSA） 是负责本地安全策略和用户身份验证的主要组件。LSA 包括与各种其他安全功能关联的多个动态链接库 （DLL），所有这些函数都在 LSA 子系统服务 （LSASS） lsass.exe 进程的上下文中运行。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/009">快捷键修改</a></td>
+<td>攻击者可能会创建或修改可在系统引导或用户登录期间执行程序的快捷方式。快捷方式或符号链接用于引用在系统启动过程单击或执行快捷方式时将打开或执行的其他文件或程序。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/010">端口监视器</a></td>
+<td>攻击者可以使用端口监视器在系统启动期间运行对手提供的 DLL，以实现持久性或权限提升。可以通过 API 调用设置端口监视器，以设置要在启动时加载的 DLL。此 DLL 可以位于打印后台处理程序服务 spoolsv.exe 中，并由打印后台处理程序服务 spoolsv 在启动时加载。spoolsv.exe 进程也在系统级权限下运行。或者，如果权限允许将任意 DLL 的完全限定路径名写入 。<code>AddMonitor``C:\Windows\System32``HKLM\SYSTEM\CurrentControlSet\Control\Print\Monitors</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/012">打印处理器</a></td>
+<td>攻击者可能会滥用打印处理器在系统启动期间运行恶意 DLL，以实现持久性和/或权限提升。打印处理器是在启动期间由打印后台处理程序服务 spoolsv.exe 加载的 DLL。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/013">XDG 自动启动条目</a></td>
+<td>攻击者可能会修改 XDG 自动启动条目，以便在系统启动期间执行程序或命令。符合 XDG 标准的 Linux 桌面环境实现了 XDG 自动启动条目的功能。这些条目将允许应用程序在用户登录后启动桌面环境期间自动启动。默认情况下，XDG 自动启动条目存储在 or 目录中，文件扩展名为 .desktop。<code>/etc/xdg/autostart``~/.config/autostart</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/014">活动设置</a></td>
+<td>攻击者可以通过将注册表项添加到本地计算机的活动安装程序来实现持久性。活动安装程序是一种 Windows 机制，用于在用户登录时执行程序。存储在注册表项中的值将在用户登录到计算机后执行。这些程序将在用户的上下文中执行，并将具有帐户的关联权限级别。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/015">登录项</a></td>
+<td>攻击者可能会添加要在用户登录时执行的登录项，以获得持久性或提升权限。登录项是在用户登录时自动启动的应用程序、文档、文件夹或服务器连接。可以通过共享文件列表或服务管理框架添加登录项。可以使用脚本语言（如 <a href="https://attack.mitre.org/techniques/T1059/002">AppleScript</a>）设置共享文件列表登录项，而服务管理框架使用 API 调用。<code>SMLoginItemSetEnabled</code></td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1037">T1037</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037">启动或登录初始化脚本</a></td>
+<td>攻击者可以使用在启动或登录初始化时自动执行的脚本来建立持久性。初始化脚本可用于执行管理功能，这些功能通常可以执行其他程序或将信息发送到内部日志记录服务器。这些脚本可能因操作系统以及本地或远程应用而异。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/001">登录脚本 （Windows）</a></td>
+<td>攻击者可以使用在登录初始化时自动执行的 Windows 登录脚本来建立持久性。Windows 允许在特定用户或用户组登录到系统时运行登录脚本。这是通过将脚本的路径添加到注册表项来完成的。<code>HKCU\Environment\UserInitMprLogonScript</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/002">登录挂钩</a></td>
+<td>攻击者可以使用登录挂钩来建立用户登录时执行的持久性。登录挂钩是一个 plist 文件，指向要在用户登录时以 root 权限执行的特定脚本。plist 文件位于文件中，可以使用命令行实用程序进行修改。此行为与注销挂钩相同，其中脚本可以在用户注销时执行。所有钩子都需要管理员权限才能修改或创建钩子。<code>/Library/Preferences/com.apple.loginwindow.plist``defaults</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/003">网络登录脚本</a></td>
+<td>攻击者可以使用在登录初始化时自动执行的网络登录脚本来建立持久性。可以使用 Active Directory 或组策略对象分配网络登录脚本。这些登录脚本以分配给它们的用户的权限运行。根据网络中的系统，初始化其中一个脚本可能适用于多个或可能应用于所有系统。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/004">RC 脚本</a></td>
+<td>攻击者可以通过修改在类 Unix 系统启动期间执行的 RC 脚本来建立持久性。这些文件允许系统管理员在启动时针对不同的运行级别映射和启动自定义服务。RC 脚本需要 root 权限才能修改。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/005">启动项</a></td>
+<td>攻击者可以使用在启动初始化时自动执行的启动项来建立持久性。启动项在引导过程的最后阶段执行，并包含 shell 脚本或其他可执行文件以及系统用于确定所有启动项的执行顺序的配置信息。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1543">T1543</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543">创建或修改系统进程</a></td>
+<td>攻击者可能会创建或修改系统级进程，以重复执行恶意有效负载作为持久性的一部分。当操作系统启动时，它们可以启动执行后台系统功能的进程。在 Windows 和 Linux 上，这些系统进程称为服务。在 macOS 上，运行称为启动<a href="https://attack.mitre.org/techniques/T1543/004">守护程序</a>和启动<a href="https://attack.mitre.org/techniques/T1543/001">代理的启动</a>进程以完成系统初始化并加载用户特定的参数。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/001">启动代理</a></td>
+<td>攻击者可能会创建或修改启动代理，以重复执行恶意有效负载作为持久性的一部分。当用户登录时，将启动每个用户启动的进程，该进程从 、 和 中找到的属性列表 （.plist） 文件加载每个按需启动用户代理的参数。属性列表文件使用 、 和 键来标识启动代理的名称、可执行文件位置和执行时间。安装启动代理通常是为了执行程序更新、在登录时启动用户指定的程序或执行其他开发人员任务。<code>/System/Library/LaunchAgents``/Library/LaunchAgents``~/Library/LaunchAgents``Label``ProgramArguments ``RunAtLoad</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/002">系统服务</a></td>
+<td>攻击者可能会创建或修改 systemd 服务，以重复执行恶意负载作为持久性的一部分。Systemd 是一个系统和服务管理器，通常用于管理后台守护进程（也称为服务）和其他系统资源。Systemd 是许多 Linux 发行版上的默认初始化 （init） 系统，取代了传统的 init 系统，包括 SysVinit 和 Upstart，同时保持向后兼容。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/003">视窗服务</a></td>
+<td>攻击者可能会创建或修改 Windows 服务，以重复执行恶意负载作为持久性的一部分。当 Windows 启动时，它会启动称为执行后台系统功能的服务的程序或应用程序。Windows 服务配置信息（包括服务的可执行文件或恢复程序/命令的文件路径）存储在 Windows 注册表中。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/004">启动守护进程</a></td>
+<td>攻击者可能会创建或修改启动守护程序以执行恶意负载，作为持久性的一部分。启动守护程序是用于与 macOS 使用的服务管理框架 Launchd 交互的 plist 文件。启动守护程序需要提升的权限才能安装，在登录之前为系统上的每个用户执行，并在后台运行，无需用户交互。在 macOS 初始化启动期间，启动的进程会从 和 中找到的 plist 文件加载按需启动系统级守护程序的参数。必需的启动守护程序参数包括用于标识任务、提供可执行文件路径以及指定任务运行时间的 。启动守护程序通常用于提供对共享资源的访问、软件更新或执行自动化任务。<code>/System/Library/LaunchDaemons/``/Library/LaunchDaemons/``Label``Program``RunAtLoad</code></td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1484">T1484</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484">域策略修改</a></td>
+<td>攻击者可能会修改域的配置设置，以逃避防御和/或提升域环境中的权限。域提供了一种集中式方法来管理计算机资源（例如：计算机、用户帐户）如何在网络上执行操作并相互交互。域的策略还包括可能在多域/林环境中的域之间应用的配置设置。对域设置的修改可能包括更改域组策略对象 （GPO） 或更改域的信任设置，包括联合身份验证信任。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/001">组策略修改</a></td>
+<td>攻击者可能会修改组策略对象 （GPO） 以破坏域的预期自由访问控制，通常目的是提升域的权限。组策略允许集中管理活动目录 （AD） 中的用户和计算机设置。GPO 是由存储在可预测网络路径中的文件组成的组策略设置的容器。<code>\&lt;DOMAIN&gt;\SYSVOL\&lt;DOMAIN&gt;\Policies\</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/002">域信任修改</a></td>
+<td>攻击者可能会添加新的域信任或修改现有域信任的属性，以逃避防御和/或提升权限。域信任详细信息（例如域是否联合）允许在域之间应用身份验证和授权属性，以便访问共享资源。这些信任对象可能包括应用于服务器、令牌和域的帐户、凭据和其他身份验证材料。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1611">T1611</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1611">逃生到主机</a></td>
+<td>攻击者可能会突破容器以获取对基础主机的访问权限。这允许攻击者从主机级别或主机本身访问其他容器化资源。原则上，容器化资源应提供应用程序功能的明确分离，并与主机环境隔离。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1546">T1546</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546">事件触发的执行</a></td>
+<td>攻击者可以使用基于特定事件触发执行的系统机制建立持久性和/或提升权限。各种操作系统都有监视和订阅事件（如登录）或其他用户活动（如运行特定应用程序/二进制文件）的方法。云环境还可以支持各种功能和服务，这些功能和服务可以监视并可以调用以响应特定的云事件。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/001">更改默认文件关联</a></td>
+<td>攻击者可以通过执行由文件类型关联触发的恶意内容来建立持久性。打开文件时，将检查用于打开文件的默认程序（也称为文件关联或处理程序）。文件关联选择存储在 Windows 注册表中，可由具有注册表访问权限的用户、管理员或程序编辑，也可以由管理员使用内置的 assoc 实用程序进行编辑。应用程序可以修改给定文件扩展名的文件关联，以便在打开具有给定扩展名的文件时调用任意程序。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/002">屏幕保护程序</a></td>
+<td>攻击者可以通过执行由用户不活动触发的恶意内容来建立持久性。屏幕保护程序是在用户不活动时间的可配置时间后执行的程序，由文件扩展名为 .scr 的可移植可执行 （PE） 文件组成。Windows 屏幕保护程序应用程序 scrnsave.scr 位于 和 64 位 Windows 系统上，以及基本 Windows 安装中包含的屏幕保护程序。<code>C:\Windows\System32\``C:\Windows\sysWOW64\</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/003">Windows Management Instrumentation Event Subscription</a></td>
+<td>攻击者可以通过执行由 Windows Management 规范 （WMI） 事件订阅触发的恶意内容来建立持久性和提升权限。WMI 可用于安装事件筛选器、提供程序、使用者和绑定，以便在发生定义的事件时执行代码。可以订阅的事件示例包括挂钟时间、用户登录或计算机的正常运行时间。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/004">Unix Shell 配置修改</a></td>
+<td>攻击者可以通过执行由用户 shell 触发的恶意命令来建立持久性。用户 <a href="https://attack.mitre.org/techniques/T1059/004">Unix Shell</a>根据事件在整个会话的不同点执行多个配置脚本。例如，当用户打开命令行界面或远程登录（例如通过 SSH ）时，将启动登录 shell。登录 shell 执行来自系统 （） 和用户主目录 （） 的脚本来配置环境。系统上的所有登录外壳在启动时都使用 /etc/profile。这些配置脚本在其目录的权限级别运行，通常用于设置环境变量、创建别名和自定义用户的环境。当外壳退出或终止时，将执行其他外壳脚本以确保外壳正确退出。<code>/etc``~/</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/005">陷阱</a></td>
+<td>攻击者可以通过执行由中断信号触发的恶意内容来建立持久性。该命令允许程序和 shell 指定在接收中断信号时将执行的命令。一种常见的情况是允许正常终止和处理常见键盘中断（如 和 的脚本）。<code>trap``ctrl+c``ctrl+d</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/006">LC_LOAD_DYLIB加法</a></td>
+<td>攻击者可以通过执行由执行受污染的二进制文件触发的恶意内容来建立持久性。Mach-O 二进制文件具有一系列标头，用于在加载二进制文件时执行某些操作。Mach-O 二进制文件中的 LC_LOAD_DYLIB 标头告诉 macOS 和 OS X 在执行期间加载哪些动态库 （dylibs）。只要对其余字段和依赖项进行调整，就可以临时将这些字段添加到已编译的二进制文件中。有一些工具可用于执行这些更改。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/007">Netsh Helper DLL</a></td>
+<td>攻击者可以通过执行由 Netsh 帮助程序 DLL 触发的恶意内容来建立持久性。 Netsh.exe（也称为 Netshell）是一个命令行脚本实用程序，用于与系统的网络配置进行交互。它包含添加帮助程序 DLL 以扩展实用工具功能的功能。已注册的 netsh.exe帮助程序 DLL 的路径将输入到 Windows 注册表中，网址为 。<code>HKLM\SOFTWARE\Microsoft\Netsh</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/008">辅助功能</a></td>
+<td>攻击者可以通过执行由辅助功能触发的恶意内容来建立持久性和/或提升权限。Windows 包含辅助功能，这些功能可以在用户登录之前（例如：当用户在 Windows 登录屏幕上时）使用组合键启动。攻击者可以修改这些程序的启动方式，以便在不登录系统的情况下获取命令提示符或后门。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/009">AppCert DLLs</a></td>
+<td>攻击者可以通过执行加载到进程中的 AppCert DLL 触发的恶意内容来建立持久性和/或提升权限。在注册表项中指定的动态链接库 （DLL） 将加载到调用常用的应用程序编程接口 （API） 函数 、、 或 的每个进程中。<code>AppCertDLLs``HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\``CreateProcess``CreateProcessAsUser``CreateProcessWithLoginW``CreateProcessWithTokenW``WinExec</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/010">AppInit DLL</a></td>
+<td>攻击者可以通过执行加载到进程中的 AppInit DLL 触发的恶意内容来建立持久性和/或提升权限。在注册表项的值中指定的动态链接库 （DLL） 或由 user32.dll加载到加载 user32.dll的每个进程中。实际上，这几乎是每个程序，因为user32.dll是一个非常常见的库。<code>AppInit_DLLs``HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows``HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/011">应用程序填充</a></td>
+<td>攻击者可以通过执行由应用程序填充码触发的恶意内容来建立持久性和/或提升权限。创建Microsoft Windows 应用程序兼容性基础结构/框架（应用程序填充程序）是为了允许在操作系统代码库随时间变化时向后兼容软件。例如，应用程序填充功能允许开发人员将修补程序应用于为 Windows XP 创建的应用程序（无需重写代码），以便它适用于 Windows 10。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/012">图像文件执行选项注入</a></td>
+<td>攻击者可以通过执行由映像文件执行选项 （IFEO） 调试器触发的恶意内容来建立持久性和/或提升权限。IFEO 使开发人员能够将调试器附加到应用程序。创建进程时，应用程序的 IFEO 中存在的调试器将附加到应用程序名称前面，从而有效地在调试器下启动新进程（例如，）。<code>C:\dbg\ntsd.exe -g notepad.exe</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/013">PowerShell Profile</a></td>
+<td>攻击者可能会通过执行由 PowerShell 配置文件触发的恶意内容来获得持久性并提升权限。PowerShell 配置文件 （） 是在 <a href="https://attack.mitre.org/techniques/T1059/001">PowerShell</a> 启动时运行的脚本，可用作自定义用户环境的登录脚本。<code>profile.ps1</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/014">埃蒙德</a></td>
+<td>攻击者可以通过执行由事件监视程序守护程序 （emond） 触发的恶意内容来获得持久性和提升权限。Emond 是一个<a href="https://attack.mitre.org/techniques/T1543/004">启动守护进程</a>，它接受来自各种服务的事件，通过简单的规则引擎运行它们，然后采取行动。emond 二进制文件将从目录中加载任何规则，并在发生显式定义的事件后采取措施。<code>/sbin/emond``/etc/emond.d/rules/</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/015">组件对象模型劫持</a></td>
+<td>攻击者可以通过执行由对组件对象模型 （COM） 对象的劫持引用触发的恶意内容来建立持久性。COM 是 Windows 中的一个系统，用于通过操作系统实现软件组件之间的交互。对各种 COM 对象的引用存储在注册表中。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/016">.016</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/016">安装程序包</a></td>
+<td>攻击者可能会通过使用安装程序触发恶意内容的执行来建立持久性并提升权限。安装程序包特定于操作系统，包含操作系统在系统上安装应用程序所需的资源。安装程序包可以包括在安装之前以及安装完成后运行的脚本。安装程序脚本在执行时可能会继承提升的权限。开发人员经常使用这些脚本来准备安装环境、检查要求、下载依赖项以及在安装后删除文件。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1068">T1068</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1068">利用特权升级</a></td>
+<td>攻击者可能会利用软件漏洞来尝试提升权限。当攻击者利用程序、服务或操作系统软件或内核本身中的编程错误来执行对手控制的代码时，就会利用软件漏洞。权限级别等安全构造通常会阻碍对信息的访问和某些技术的使用，因此攻击者可能需要执行权限提升，以包括使用软件漏洞来规避这些限制。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1574">T1574</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574">劫持执行流程</a></td>
+<td>攻击者可以通过劫持操作系统运行程序的方式来执行自己的恶意负载。劫持执行流可以用于持久性，因为这种劫持的执行可能会随着时间的推移而重新发生。攻击者还可以使用这些机制来提升权限或规避防御，例如应用程序控制或其他执行限制。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/001">DLL 搜索顺序劫持</a></td>
+<td>攻击者可能会通过劫持用于加载 DLL 的搜索顺序来执行自己的恶意负载。 Windows 系统使用一种常用方法来查找要加载到程序中所需的 DLL。劫持 DLL 加载可能是为了建立持久性以及提升权限和/或逃避对文件执行的限制。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/002">DLL 旁加载</a></td>
+<td>攻击者可能会通过旁加载 DLL 来执行自己的恶意负载。 与 DLL <a href="https://attack.mitre.org/techniques/T1574/001">搜索顺序</a>劫持类似，旁加载涉及劫持程序加载的 DLL。但是，攻击者不仅可以在程序的搜索顺序中植入 DLL，然后等待调用受害应用程序，而是可以通过植入然后调用执行其有效负载的合法应用程序来直接旁加载其有效负载。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/004">迪利布劫持</a></td>
+<td>攻击者可以通过在受害者应用程序在运行时搜索的路径中放置具有预期名称的恶意动态库 （dylib） 来执行自己的有效负载。动态加载程序将尝试根据搜索路径的顺序查找 dylib。dylibs 的路径可以以 为前缀，这允许开发人员使用相对路径根据可执行文件的位置指定运行时使用的搜索路径数组。此外，如果使用弱链接（例如函数），即使不存在预期的 dylib，应用程序仍将执行。弱链接使开发人员能够在添加新 API 时在多个 macOS 版本上运行应用程序。<code>@rpath``LC_LOAD_WEAK_DYLIB</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/005">可执行安装程序文件权限弱点</a></td>
+<td>攻击者可以通过劫持安装程序使用的二进制文件来执行自己的恶意负载。这些进程可能会自动执行特定的二进制文件作为其功能的一部分或执行其他操作。如果对包含目标二进制文件的文件系统目录的权限或对二进制文件本身的权限设置不正确，则目标二进制文件可能会被使用用户级权限的另一个二进制文件覆盖，并由原始进程执行。如果原始进程和线程在更高的权限级别下运行，则替换的二进制文件也将在更高级别的权限下执行，其中可能包括 SYSTEM。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/006">动态链接器劫持</a></td>
+<td>攻击者可能会通过劫持动态链接器用于加载共享库的环境变量来执行自己的恶意负载。在程序的执行准备阶段，动态链接器从环境变量和文件（例如在 Linux 或 macOS 上）加载共享库的指定绝对路径。首先加载环境变量中指定的库，优先于具有相同函数名称的系统库。开发人员通常使用这些变量来调试二进制文件而无需重新编译、消除映射符号的冲突以及实现自定义函数而无需更改原始库。<code>LD_PRELOAD``DYLD_INSERT_LIBRARIES</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/007">路径环境变量的路径拦截</a></td>
+<td>攻击者可以通过劫持用于加载库的环境变量来执行自己的恶意负载。攻击者可能会将程序放在存储在 PATH 环境变量中的目录列表中的较早条目中，然后 Windows 将在按顺序搜索该 PATH 列表以搜索从脚本或命令行调用的二进制文件时执行该条目。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/008">通过搜索顺序劫持进行路径拦截</a></td>
+<td>攻击者可以通过劫持用于加载其他程序的搜索顺序来执行自己的恶意负载。由于某些程序不使用完整路径调用其他程序，因此攻击者可能会将自己的文件放在调用程序所在的目录中，从而导致操作系统应调用程序的请求启动其恶意软件。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/009">通过不带引号的路径拦截</a></td>
+<td>攻击者可以通过劫持易受攻击的文件路径引用来执行自己的恶意负载。攻击者可以通过将可执行文件放置在路径内的更高级别目录中来利用缺少周围引号的路径，以便 Windows 选择要启动的对手的可执行文件。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/010">服务文件权限弱点</a></td>
+<td>攻击者可以通过劫持服务使用的二进制文件来执行自己的恶意负载。攻击者可能会利用 Windows 服务权限中的缺陷来替换在服务启动时执行的二进制文件。这些服务进程可能会自动执行特定的二进制文件，作为其功能的一部分或执行其他操作。如果对包含目标二进制文件的文件系统目录的权限或对二进制文件本身的权限设置不正确，则目标二进制文件可能会被使用用户级权限的另一个二进制文件覆盖，并由原始进程执行。如果原始进程和线程在更高的权限级别下运行，则替换的二进制文件也将在更高级别的权限下执行，其中可能包括 SYSTEM。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/011">服务注册表权限弱点</a></td>
+<td>攻击者可以通过劫持服务使用的注册表项来执行自己的恶意负载。攻击者可能会利用与服务相关的注册表项权限中的缺陷，从最初指定的可执行文件重定向到他们控制的可执行文件，以便在服务启动时启动自己的代码。Windows 将本地服务配置信息存储在注册表中的 下。可以通过服务控制器、sc.exe、<a href="https://attack.mitre.org/techniques/T1059/001">PowerShell</a> 或 <a href="https://attack.mitre.org/software/S0075">Reg</a> 等工具操作存储在服务的注册表项下的信息来修改服务的执行参数。对注册表项的访问通过访问控制列表和用户权限进行控制。<code>HKLM\SYSTEM\CurrentControlSet\Services</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/012">COR_PROFILER</a></td>
+<td>攻击者可以利用COR_PROFILER环境变量劫持加载 .NET CLR 的程序的执行流。COR_PROFILER是一项 .NET Framework 功能，它允许开发人员指定要加载到加载公共语言运行时 （CLR） 的每个 .NET 进程中的非托管（或 .NET 外部）分析 DLL。这些探查器旨在监视、排查和调试由 .NET CLR 执行的托管代码。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/013">内核回调表</a></td>
+<td>攻击者可能会滥用进程来劫持其执行流，以便运行自己的有效负载。可以在进程环境块 （PEB） 中找到，并在加载后初始化为 GUI 进程可用的图形函数数组。<code>KernelCallbackTable``KernelCallbackTable``user32.dll</code></td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1055">T1055</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055">工艺注入</a></td>
+<td>攻击者可能会将代码注入进程，以逃避基于进程的防御，并可能提升权限。进程注入是一种在单独的实时进程的地址空间中执行任意代码的方法。在另一个进程的上下文中运行代码可能允许访问进程的内存、系统/网络资源以及可能提升的权限。通过进程注入执行也可以逃避安全产品的检测，因为执行在合法进程下被掩盖。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/001">动态链接库注入</a></td>
+<td>攻击者可能会将动态链接库 （DLL） 注入进程，以逃避基于进程的防御，并可能提升权限。DLL 注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/002">可移植可执行注入</a></td>
+<td>攻击者可能会将可移植可执行文件 （PE） 注入进程，以逃避基于进程的防御，并可能提升权限。PE 注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/003">线程执行劫持</a></td>
+<td>攻击者可能会将恶意代码注入被劫持的进程，以逃避基于进程的防御，并可能提升权限。线程执行劫持是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/004">异步过程调用</a></td>
+<td>攻击者可能会通过异步过程调用 （APC） 队列将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。APC 注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/005">线程本地存储</a></td>
+<td>攻击者可能会通过线程本地存储 （TLS） 回调将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。TLS 回调注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/008">跟踪系统调用</a></td>
+<td>攻击者可能会通过 ptrace（进程跟踪）系统调用将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。Ptrace 系统调用注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/009">处理器内存</a></td>
+<td>攻击者可能会通过 /proc 文件系统将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。Proc 内存注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/011">额外的窗口内存注入</a></td>
+<td>攻击者可能会通过额外窗口内存 （EWM） 将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。EWM 注入是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/012">工艺镂空</a></td>
+<td>攻击者可能会将恶意代码注入到挂起和空洞的进程中，以逃避基于进程的防御。进程挖空是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/013">过程分身</a></td>
+<td>攻击者可能会通过进程分身将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。进程分身是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/014">VDSO劫持</a></td>
+<td>攻击者可能会通过 VDSO 劫持将恶意代码注入进程，以逃避基于进程的防御，并可能提升权限。虚拟动态共享对象 （vdso） 劫持是一种在单独的实时进程的地址空间中执行任意代码的方法。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/015">列表种植</a></td>
+<td>攻击者可能会滥用列表视图控件将恶意代码注入被劫持的进程，以逃避基于进程的防御，并可能提升权限。ListPlanting 是一种在单独的实时进程的地址空间中执行任意代码的方法。通过 ListPlanting 执行的代码也可以逃避安全产品的检测，因为执行在合法进程下被掩盖。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1053">T1053</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053">计划任务/作业</a></td>
+<td>攻击者可能会滥用任务计划功能来促进恶意代码的初始或重复执行。所有主要操作系统中都存在实用程序，用于安排在指定日期和时间执行的程序或脚本。如果满足正确的身份验证（例如：Windows 环境中的 RPC 以及文件和打印机共享），也可以在远程系统上计划任务。在远程系统上计划任务通常需要成为远程系统上的管理员或其他特权组的成员。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/002">在</a></td>
+<td>攻击者可能会滥用 <a href="https://attack.mitre.org/software/S0110">at</a> 实用程序来执行任务调度，以便初始或重复执行恶意代码。<a href="https://attack.mitre.org/software/S0110">at</a> 实用程序作为可执行文件存在于 Windows、Linux 和 macOS 中，用于在指定的时间和日期安排任务。尽管在 Windows 环境中已弃用计划任务的 <a href="https://attack.mitre.org/software/S0111">schtasks</a>，但使用 <a href="https://attack.mitre.org/software/S0110">at</a> 要求任务<a href="https://attack.mitre.org/techniques/T1053/005">计划</a>程序服务正在运行，并且用户必须以本地管理员组的成员身份登录。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/003">克龙</a></td>
+<td>攻击者可能会滥用该实用程序来执行任务调度，以初始或重复执行恶意代码。该实用程序是用于类Unix操作系统的基于时间的作业调度程序。该文件包含要运行的 cron 条目的计划和指定的执行时间。任何文件都存储在特定于操作系统的文件路径中。<code>cron``cron`` crontab``crontab</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/005">计划任务</a></td>
+<td>攻击者可能会滥用 Windows 任务计划程序来执行任务计划，以便初始或定期执行恶意代码。有多种方法可以在 Windows 中访问任务计划程序。<a href="https://attack.mitre.org/software/S0111">schtasks</a> 实用程序可以直接在命令行上运行，也可以通过控制面板的“管理员工具”部分中的 GUI 打开任务计划程序。在某些情况下，攻击者对 Windows 任务计划程序使用 .NET 包装器，或者，攻击者使用 Windows netapi32 库创建计划任务。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/006">系统定时器</a></td>
+<td>攻击者可能会滥用 systemd 计时器来执行任务调度，以初始或重复执行恶意代码。Systemd 计时器是具有文件扩展名的单元文件，用于控制服务。计时器可以设置为在日历事件上运行，也可以在相对于起点的时间跨度后运行。它们可以在Linux环境中用作<a href="https://attack.mitre.org/techniques/T1053/003">Cron</a>的替代品。Systemd 定时器可以通过命令行实用程序远程激活，该实用程序通过 <a href="https://attack.mitre.org/techniques/T1021/004">SSH</a> 运行。<code>.timer``systemctl</code></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/007">容器编排作业</a></td>
+<td>攻击者可能会滥用容器编排工具（如 Kubernetes）提供的任务调度功能来调度配置为执行恶意代码的容器的部署。容器业务流程作业在特定日期和时间运行这些自动化任务，类似于 Linux 系统上的 cron 作业。还可以将这种类型的部署配置为随着时间的推移维护一定数量的容器，从而自动执行在集群中维护持久性的过程。</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1078">T1078</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078">有效帐户</a></td>
+<td>攻击者可能会获取和滥用现有帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。泄露的凭据可用于绕过对网络中系统上各种资源的访问控制，甚至可用于对远程系统和外部可用服务（如 VPN、Outlook Web 访问、网络设备和远程桌面）的持久访问。泄露的凭据还可能授予攻击者对特定系统或访问网络受限区域的更多权限。攻击者可以选择不将恶意软件或工具与这些凭据提供的合法访问权限结合使用，以使其更难检测到它们的存在。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">默认帐户</a></td>
+<td>攻击者可能会获取和滥用默认帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。默认帐户是内置于操作系统中的帐户，例如 Windows 系统上的来宾或管理员帐户。默认账户还包括其他类型的系统、软件或设备上的默认工厂/提供商集账户，包括 AWS 中的根用户账户和 Kubernetes 中的默认服务账户。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">域帐户</a></td>
+<td>攻击者可能会获取和滥用域帐户的凭据，作为获取初始访问权限、持久性、权限提升或防御规避的一种手段。域帐户是由 Active Directory 域服务管理的帐户，其中访问和权限是在属于该域的系统和服务之间配置的。域帐户可以涵盖用户、管理员和服务。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">本地帐户</a></td>
+<td>攻击者可能会获取和滥用本地帐户的凭据，作为获取初始访问、持久性、权限提升或防御规避的一种手段。本地帐户是由组织配置的帐户，供用户、远程支持、服务使用或在单个系统或服务上进行管理。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">云帐户</a></td>
+<td>攻击者可能会获取和滥用云帐户的凭据，作为获取初始访问、持久性、权限提升或防御规避的一种手段。云帐户是由组织创建和配置的帐户，供用户、远程支持、服务使用，或用于管理云服务提供商或 SaaS 应用程序中的资源。在某些情况下，云帐户可能与传统的身份管理系统（如 Windows Active Directory）联合。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>The adversary is trying to gain higher-level permissions.</p>
+<p>Privilege Escalation consists of techniques that adversaries use to gain higher-level permissions on a system or network. Adversaries can often enter and explore a network with unprivileged access but require elevated permissions to follow through on their objectives. Common approaches are to take advantage of system weaknesses, misconfigurations, and vulnerabilities. Examples of elevated access include:</p>
+<ul>
+<li>SYSTEM/root level</li>
+<li>local administrator</li>
+<li>user account with admin-like access</li>
+<li>user accounts with access to specific system or perform specific function</li>
+</ul>
+<p>These techniques often overlap with Persistence techniques, as OS features that let an adversary persist can execute in an elevated context.</p>
+<h2 id="techniques-13">Techniques: 13</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1548">T1548</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548">Abuse Elevation Control Mechanism</a></td>
+<td>Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users in order to perform tasks that can be considered of higher risk. An adversary can perform several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/001">Setuid and Setgid</a></td>
+<td>An adversary may abuse configurations where an application has the setuid or setgid bits set in order to get code running in a different (and possibly more privileged) user’s context. On Linux or macOS, when the setuid or setgid bits are set for an application binary, the application will run with the privileges of the owning user or group respectively. Normally an application is run in the current user’s context, regardless of which user or group owns the application. However, there are instances where programs need to be executed in an elevated context to function properly, but the user running them may not have the specific required privileges.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/002">Bypass User Account Control</a></td>
+<td>Adversaries may bypass UAC mechanisms to elevate process privileges on system. Windows User Account Control (UAC) allows a program to elevate its privileges (tracked as integrity levels ranging from low to high) to perform a task under administrator-level permissions, possibly by prompting the user for confirmation. The impact to the user ranges from denying the operation under high enforcement to allowing the user to perform the action if they are in the local administrators group and click through the prompt or allowing them to enter an administrator password to complete the action.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/003">Sudo and Sudo Caching</a></td>
+<td>Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges. Adversaries may do this to execute commands as other users or spawn processes with higher privileges.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1548/004">Elevated Execution with Prompt</a></td>
+<td>Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials. The purpose of this API is to give application developers an easy way to perform operations with root privileges, such as for application installation or updating. This API does not validate that the program requesting root privileges comes from a reputable source or has been maliciously modified.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1134">T1134</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134">Access Token Manipulation</a></td>
+<td>Adversaries may modify access tokens to operate under a different user or system security context to perform actions and bypass access controls. Windows uses access tokens to determine the ownership of a running process. A user can manipulate access tokens to make a running process appear as though it is the child of a different process or belongs to someone other than the user that started the process. When this occurs, the process also takes on the security context associated with the new token.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/001">Token Impersonation/Theft</a></td>
+<td>Adversaries may duplicate then impersonate another user's existing token to escalate privileges and bypass access controls. For example, an adversary can duplicate an existing token using <code>DuplicateToken</code> or <code>DuplicateTokenEx</code>. The token can then be used with <code>ImpersonateLoggedOnUser</code> to allow the calling thread to impersonate a logged on user's security context, or with <code>SetThreadToken</code> to assign the impersonated token to a thread.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/002">Create Process with Token</a></td>
+<td>Adversaries may create a new process with an existing token to escalate privileges and bypass access controls. Processes can be created with the token and resulting security context of another user using features such as <code>CreateProcessWithTokenW</code> and <code>runas</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/003">Make and Impersonate Token</a></td>
+<td>Adversaries may make new tokens and impersonate users to escalate privileges and bypass access controls. For example, if an adversary has a username and password but the user is not logged onto the system the adversary can then create a logon session for the user using the <code>LogonUser</code> function. The function will return a copy of the new session's access token and the adversary can use <code>SetThreadToken</code> to assign the token to a thread.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/004">Parent PID Spoofing</a></td>
+<td>Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. New processes are typically spawned directly from their parent, or calling, process unless explicitly specified. One way of explicitly assigning the PPID of a new process is via the <code>CreateProcess</code> API call, which supports a parameter that defines the PPID to use. This functionality is used by Windows features such as User Account Control (UAC) to correctly set the PPID after a requested elevated process is spawned by SYSTEM (typically via <code>svchost.exe</code> or <code>consent.exe</code>) rather than the current user context.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1134/005">SID-History Injection</a></td>
+<td>Adversaries may use SID-History Injection to escalate privileges and bypass access controls. The Windows security identifier (SID) is a unique value that identifies a user or group account. SIDs are used by Windows security in both security descriptors and access tokens. An account can hold additional SIDs in the SID-History Active Directory attribute , allowing inter-operable account migration between domains (e.g., all values in SID-History are included in access tokens).</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1547">T1547</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547">Boot or Logon Autostart Execution</a></td>
+<td>Adversaries may configure system settings to automatically execute a program during system boot or logon to maintain persistence or gain higher-level privileges on compromised systems. Operating systems may have mechanisms for automatically running a program on system boot or account logon. These mechanisms may include automatically executing programs that are placed in specially designated directories or are referenced by repositories that store configuration information, such as the Windows Registry. An adversary may achieve the same goal by modifying or extending features of the kernel.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/001">Registry Run Keys / Startup Folder</a></td>
+<td>Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key. Adding an entry to the "run keys" in the Registry or startup folder will cause the program referenced to be executed when a user logs in. These programs will be executed under the context of the user and will have the account's associated permissions level.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/002">Authentication Package</a></td>
+<td>Adversaries may abuse authentication packages to execute DLLs when the system boots. Windows authentication package DLLs are loaded by the Local Security Authority (LSA) process at system start. They provide support for multiple logon processes and multiple security protocols to the operating system.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/003">Time Providers</a></td>
+<td>Adversaries may abuse time providers to execute DLLs when the system boots. The Windows Time service (W32Time) enables time synchronization across and within domains. W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/004">Winlogon Helper DLL</a></td>
+<td>Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in. Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete. Registry entries in <code>HKLM\Software[\Wow6432Node\]\Microsoft\Windows NT\CurrentVersion\Winlogon\</code> and <code>HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\</code> are used to manage additional helper programs and functionalities that support Winlogon.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/005">Security Support Provider</a></td>
+<td>Adversaries may abuse security support providers (SSPs) to execute DLLs when the system boots. Windows SSP DLLs are loaded into the Local Security Authority (LSA) process at system start. Once loaded into the LSA, SSP DLLs have access to encrypted and plaintext passwords that are stored in Windows, such as any logged-on user's Domain password or smart card PINs.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/006">Kernel Modules and Extensions</a></td>
+<td>Adversaries may modify the kernel to automatically execute programs on system boot. Loadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system. For example, one type of module is the device driver, which allows the kernel to access hardware connected to the system.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/007">Re-opened Applications</a></td>
+<td>Adversaries may modify plist files to automatically run an application when a user logs in. When a user logs out or restarts via the macOS Graphical User Interface (GUI), a prompt is provided to the user with a checkbox to "Reopen windows when logging back in". When selected, all applications currently open are added to a property list file named <code>com.apple.loginwindow.[UUID].plist</code> within the <code>~/Library/Preferences/ByHost</code> directory. Applications listed in this file are automatically reopened upon the user’s next logon.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/008">LSASS Driver</a></td>
+<td>Adversaries may modify or add LSASS drivers to obtain persistence on compromised systems. The Windows security subsystem is a set of components that manage and enforce the security policy for a computer or domain. The Local Security Authority (LSA) is the main component responsible for local security policy and user authentication. The LSA includes multiple dynamic link libraries (DLLs) associated with various other security functions, all of which run in the context of the LSA Subsystem Service (LSASS) lsass.exe process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/009">Shortcut Modification</a></td>
+<td>Adversaries may create or modify shortcuts that can execute a program during system boot or user login. Shortcuts or symbolic links are used to reference other files or programs that will be opened or executed when the shortcut is clicked or executed by a system startup process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/010">Port Monitors</a></td>
+<td>Adversaries may use port monitors to run an adversary supplied DLL during system boot for persistence or privilege escalation. A port monitor can be set through the <code>AddMonitor</code> API call to set a DLL to be loaded at startup. This DLL can be located in <code>C:\Windows\System32</code> and will be loaded by the print spooler service, spoolsv.exe, on boot. The spoolsv.exe process also runs under SYSTEM level permissions. Alternatively, an arbitrary DLL can be loaded if permissions allow writing a fully-qualified pathname for that DLL to <code>HKLM\SYSTEM\CurrentControlSet\Control\Print\Monitors</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/012">Print Processors</a></td>
+<td>Adversaries may abuse print processors to run malicious DLLs during system boot for persistence and/or privilege escalation. Print processors are DLLs that are loaded by the print spooler service, spoolsv.exe, during boot.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/013">XDG Autostart Entries</a></td>
+<td>Adversaries may modify XDG autostart entries to execute programs or commands during system boot. Linux desktop environments that are XDG compliant implement functionality for XDG autostart entries. These entries will allow an application to automatically start during the startup of a desktop environment after user logon. By default, XDG autostart entries are stored within the <code>/etc/xdg/autostart</code> or <code>~/.config/autostart</code> directories and have a .desktop file extension.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/014">Active Setup</a></td>
+<td>Adversaries may achieve persistence by adding a Registry key to the Active Setup of the local machine. Active Setup is a Windows mechanism that is used to execute programs when a user logs in. The value stored in the Registry key will be executed after a user logs into the computer. These programs will be executed under the context of the user and will have the account's associated permissions level.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1547/015">Login Items</a></td>
+<td>Adversaries may add login items to execute upon user login to gain persistence or escalate privileges. Login items are applications, documents, folders, or server connections that are automatically launched when a user logs in. Login items can be added via a shared file list or Service Management Framework. Shared file list login items can be set using scripting languages such as <a href="https://attack.mitre.org/techniques/T1059/002">AppleScript</a>, whereas the Service Management Framework uses the API call <code>SMLoginItemSetEnabled</code>.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1037">T1037</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037">Boot or Logon Initialization Scripts</a></td>
+<td>Adversaries may use scripts automatically executed at boot or logon initialization to establish persistence. Initialization scripts can be used to perform administrative functions, which may often execute other programs or send information to an internal logging server. These scripts can vary based on operating system and whether applied locally or remotely.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/001">Logon Script (Windows)</a></td>
+<td>Adversaries may use Windows logon scripts automatically executed at logon initialization to establish persistence. Windows allows logon scripts to be run whenever a specific user or group of users log into a system. This is done via adding a path to a script to the <code>HKCU\Environment\UserInitMprLogonScript</code> Registry key.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/002">Login Hook</a></td>
+<td>Adversaries may use a Login Hook to establish persistence executed upon user logon. A login hook is a plist file that points to a specific script to execute with root privileges upon user logon. The plist file is located in the <code>/Library/Preferences/com.apple.loginwindow.plist</code> file and can be modified using the <code>defaults</code> command-line utility. This behavior is the same for logout hooks where a script can be executed upon user logout. All hooks require administrator permissions to modify or create hooks.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/003">Network Logon Script</a></td>
+<td>Adversaries may use network logon scripts automatically executed at logon initialization to establish persistence. Network logon scripts can be assigned using Active Directory or Group Policy Objects. These logon scripts run with the privileges of the user they are assigned to. Depending on the systems within the network, initializing one of these scripts could apply to more than one or potentially all systems.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/004">RC Scripts</a></td>
+<td>Adversaries may establish persistence by modifying RC scripts which are executed during a Unix-like system’s startup. These files allow system administrators to map and start custom services at startup for different run levels. RC scripts require root privileges to modify.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1037/005">Startup Items</a></td>
+<td>Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1543">T1543</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543">Create or Modify System Process</a></td>
+<td>Adversaries may create or modify system-level processes to repeatedly execute malicious payloads as part of persistence. When operating systems boot up, they can start processes that perform background system functions. On Windows and Linux, these system processes are referred to as services. On macOS, launchd processes known as <a href="https://attack.mitre.org/techniques/T1543/004">Launch Daemon</a> and <a href="https://attack.mitre.org/techniques/T1543/001">Launch Agent</a> are run to finish system initialization and load user specific parameters.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/001">Launch Agent</a></td>
+<td>Adversaries may create or modify launch agents to repeatedly execute malicious payloads as part of persistence. When a user logs in, a per-user launchd process is started which loads the parameters for each launch-on-demand user agent from the property list (.plist) file found in <code>/System/Library/LaunchAgents</code>, <code>/Library/LaunchAgents</code>, and <code>~/Library/LaunchAgents</code>. Property list files use the <code>Label</code>, <code>ProgramArguments</code>, and <code>RunAtLoad</code> keys to identify the Launch Agent's name, executable location, and execution time. Launch Agents are often installed to perform updates to programs, launch user specified programs at login, or to conduct other developer tasks.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/002">Systemd Service</a></td>
+<td>Adversaries may create or modify systemd services to repeatedly execute malicious payloads as part of persistence. Systemd is a system and service manager commonly used for managing background daemon processes (also known as services) and other system resources. Systemd is the default initialization (init) system on many Linux distributions replacing legacy init systems, including SysVinit and Upstart, while remaining backwards compatible.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/003">Windows Service</a></td>
+<td>Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence. When Windows boots up, it starts programs or applications called services that perform background system functions. Windows service configuration information, including the file path to the service's executable or recovery programs/commands, is stored in the Windows Registry.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1543/004">Launch Daemon</a></td>
+<td>Adversaries may create or modify Launch Daemons to execute malicious payloads as part of persistence. Launch Daemons are plist files used to interact with Launchd, the service management framework used by macOS. Launch Daemons require elevated privileges to install, are executed for every user on a system prior to login, and run in the background without the need for user interaction. During the macOS initialization startup, the launchd process loads the parameters for launch-on-demand system-level daemons from plist files found in <code>/System/Library/LaunchDaemons/</code> and <code>/Library/LaunchDaemons/</code>. Required Launch Daemons parameters include a <code>Label</code> to identify the task, <code>Program</code> to provide a path to the executable, and <code>RunAtLoad</code> to specify when the task is run. Launch Daemons are often used to provide access to shared resources, updates to software, or conduct automation tasks.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1484">T1484</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484">Domain Policy Modification</a></td>
+<td>Adversaries may modify the configuration settings of a domain to evade defenses and/or escalate privileges in domain environments. Domains provide a centralized means of managing how computer resources (ex: computers, user accounts) can act, and interact with each other, on a network. The policy of the domain also includes configuration settings that may apply between domains in a multi-domain/forest environment. Modifications to domain settings may include altering domain Group Policy Objects (GPOs) or changing trust settings for domains, including federation trusts.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/001">Group Policy Modification</a></td>
+<td>Adversaries may modify Group Policy Objects (GPOs) to subvert the intended discretionary access controls for a domain, usually with the intention of escalating privileges on the domain. Group policy allows for centralized management of user and computer settings in Active Directory (AD). GPOs are containers for group policy settings made up of files stored within a predictable network path <code>\&lt;DOMAIN&gt;\SYSVOL\&lt;DOMAIN&gt;\Policies\</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1484/002">Domain Trust Modification</a></td>
+<td>Adversaries may add new domain trusts or modify the properties of existing domain trusts to evade defenses and/or elevate privileges. Domain trust details, such as whether or not a domain is federated, allow authentication and authorization properties to apply between domains for the purpose of accessing shared resources. These trust objects may include accounts, credentials, and other authentication material applied to servers, tokens, and domains.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1611">T1611</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1611">Escape to Host</a></td>
+<td>Adversaries may break out of a container to gain access to the underlying host. This can allow an adversary access to other containerized resources from the host level or to the host itself. In principle, containerized resources should provide a clear separation of application functionality and be isolated from the host environment.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1546">T1546</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546">Event Triggered Execution</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges using system mechanisms that trigger execution based on specific events. Various operating systems have means to monitor and subscribe to events such as logons or other user activity such as running specific applications/binaries. Cloud environments may also support various functions and services that monitor and can be invoked in response to specific cloud events.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/001">Change Default File Association</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by a file type association. When a file is opened, the default program used to open the file (also called the file association or handler) is checked. File association selections are stored in the Windows Registry and can be edited by users, administrators, or programs that have Registry access or by administrators using the built-in assoc utility. Applications can modify the file association for a given file extension to call an arbitrary program when a file with the given extension is opened.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/002">Screensaver</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension. The Windows screensaver application scrnsave.scr is located in <code>C:\Windows\System32\</code>, and <code>C:\Windows\sysWOW64\</code> on 64-bit Windows systems, along with screensavers included with base Windows installations.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/003">Windows Management Instrumentation Event Subscription</a></td>
+<td>Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription. WMI can be used to install event filters, providers, consumers, and bindings that execute code when a defined event occurs. Examples of events that may be subscribed to are the wall clock time, user loging, or the computer's uptime.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/004">Unix Shell Configuration Modification</a></td>
+<td>Adversaries may establish persistence through executing malicious commands triggered by a user’s shell. User <a href="https://attack.mitre.org/techniques/T1059/004">Unix Shell</a>s execute several configuration scripts at different points throughout the session based on events. For example, when a user opens a command-line interface or remotely logs in (such as via SSH) a login shell is initiated. The login shell executes scripts from the system (<code>/etc</code>) and the user’s home directory (<code>~/</code>) to configure the environment. All login shells on a system use /etc/profile when initiated. These configuration scripts run at the permission level of their directory and are often used to set environment variables, create aliases, and customize the user’s environment. When the shell exits or terminates, additional shell scripts are executed to ensure the shell exits appropriately.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/005">Trap</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by an interrupt signal. The <code>trap</code> command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common keyboard interrupts like <code>ctrl+c</code> and <code>ctrl+d</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/006">LC_LOAD_DYLIB Addition</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by the execution of tainted binaries. Mach-O binaries have a series of headers that are used to perform certain operations when a binary is loaded. The LC_LOAD_DYLIB header in a Mach-O binary tells macOS and OS X which dynamic libraries (dylibs) to load during execution time. These can be added ad-hoc to the compiled binary as long as adjustments are made to the rest of the fields and dependencies. There are tools available to perform these changes.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/007">Netsh Helper DLL</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by Netsh Helper DLLs. Netsh.exe (also referred to as Netshell) is a command-line scripting utility used to interact with the network configuration of a system. It contains functionality to add helper DLLs for extending functionality of the utility. The paths to registered netsh.exe helper DLLs are entered into the Windows Registry at <code>HKLM\SOFTWARE\Microsoft\Netsh</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/008">Accessibility Features</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by accessibility features. Windows contains accessibility features that may be launched with a key combination before a user has logged in (ex: when the user is on the Windows logon screen). An adversary can modify the way these programs are launched to get a command prompt or backdoor without logging in to the system.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/009">AppCert DLLs</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppCert DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the <code>AppCertDLLs</code> Registry key under <code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\</code> are loaded into every process that calls the ubiquitously used application programming interface (API) functions <code>CreateProcess</code>, <code>CreateProcessAsUser</code>, <code>CreateProcessWithLoginW</code>, <code>CreateProcessWithTokenW</code>, or <code>WinExec</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/010">AppInit DLLs</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the <code>AppInit_DLLs</code> value in the Registry keys <code>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows</code> or <code>HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows</code> are loaded by user32.dll into every process that loads user32.dll. In practice this is nearly every program, since user32.dll is a very common library.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/011">Application Shimming</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims. The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time. For example, the application shimming feature allows developers to apply fixes to applications (without rewriting code) that were created for Windows XP so that it will work with Windows 10.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/012">Image File Execution Options Injection</a></td>
+<td>Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers. IFEOs enable a developer to attach a debugger to an application. When a process is created, a debugger present in an application’s IFEO will be prepended to the application’s name, effectively launching the new process under the debugger (e.g., <code>C:\dbg\ntsd.exe -g notepad.exe</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/013">PowerShell Profile</a></td>
+<td>Adversaries may gain persistence and elevate privileges by executing malicious content triggered by PowerShell profiles. A PowerShell profile (<code>profile.ps1</code>) is a script that runs when <a href="https://attack.mitre.org/techniques/T1059/001">PowerShell</a> starts and can be used as a logon script to customize user environments.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/014">Emond</a></td>
+<td>Adversaries may gain persistence and elevate privileges by executing malicious content triggered by the Event Monitor Daemon (emond). Emond is a <a href="https://attack.mitre.org/techniques/T1543/004">Launch Daemon</a> that accepts events from various services, runs them through a simple rules engine, and takes action. The emond binary at <code>/sbin/emond</code> will load any rules from the <code>/etc/emond.d/rules/</code> directory and take action once an explicitly defined event takes place.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/015">Component Object Model Hijacking</a></td>
+<td>Adversaries may establish persistence by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. COM is a system within Windows to enable interaction between software components through the operating system. References to various COM objects are stored in the Registry.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/016">.016</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1546/016">Installer Packages</a></td>
+<td>Adversaries may establish persistence and elevate privileges by using an installer to trigger the execution of malicious content. Installer packages are OS specific and contain the resources an operating system needs to install applications on a system. Installer packages can include scripts that run prior to installation as well as after installation is complete. Installer scripts may inherit elevated permissions when executed. Developers often use these scripts to prepare the environment for installation, check requirements, download dependencies, and remove files after installation.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1068">T1068</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1068">Exploitation for Privilege Escalation</a></td>
+<td>Adversaries may exploit software vulnerabilities in an attempt to elevate privileges. Exploitation of a software vulnerability occurs when an adversary takes advantage of a programming error in a program, service, or within the operating system software or kernel itself to execute adversary-controlled code. Security constructs such as permission levels will often hinder access to information and use of certain techniques, so adversaries will likely need to perform privilege escalation to include use of software exploitation to circumvent those restrictions.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1574">T1574</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574">Hijack Execution Flow</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the way operating systems run programs. Hijacking execution flow can be for the purposes of persistence, since this hijacked execution may reoccur over time. Adversaries may also use these mechanisms to elevate privileges or evade defenses, such as application control or other restrictions on execution.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/001">DLL Search Order Hijacking</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the search order used to load DLLs. Windows systems use a common method to look for required DLLs to load into a program. Hijacking DLL loads may be for the purpose of establishing persistence as well as elevating privileges and/or evading restrictions on file execution.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/002">DLL Side-Loading</a></td>
+<td>Adversaries may execute their own malicious payloads by side-loading DLLs. Similar to <a href="https://attack.mitre.org/techniques/T1574/001">DLL Search Order Hijacking</a>, side-loading involves hijacking which DLL a program loads. But rather than just planting the DLL within the search order of a program then waiting for the victim application to be invoked, adversaries may directly side-load their payloads by planting then invoking a legitimate application that executes their payload(s).</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/004">Dylib Hijacking</a></td>
+<td>Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime. The dynamic loader will try to find the dylibs based on the sequential order of the search paths. Paths to dylibs may be prefixed with <code>@rpath</code>, which allows developers to use relative paths to specify an array of search paths used at runtime based on the location of the executable. Additionally, if weak linking is used, such as the <code>LC_LOAD_WEAK_DYLIB</code> function, an application will still execute even if an expected dylib is not present. Weak linking enables developers to run an application on multiple macOS versions as new APIs are added.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/005">Executable Installer File Permissions Weakness</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the binaries used by an installer. These processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself, are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/006">Dynamic Linker Hijacking</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries. During the execution preparation phase of a program, the dynamic linker loads specified absolute paths of shared libraries from environment variables and files, such as <code>LD_PRELOAD</code> on Linux or <code>DYLD_INSERT_LIBRARIES</code> on macOS. Libraries specified in environment variables are loaded first, taking precedence over system libraries with the same function name. These variables are often used by developers to debug binaries without needing to recompile, deconflict mapped symbols, and implement custom functions without changing the original library.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/007">Path Interception by PATH Environment Variable</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries. Adversaries may place a program in an earlier entry in the list of directories stored in the PATH environment variable, which Windows will then execute when it searches sequentially through that PATH listing in search of the binary that was called from a script or the command line.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/008">Path Interception by Search Order Hijacking</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs. Because some programs do not call other programs using the full path, adversaries may place their own file in the directory where the calling program is located, causing the operating system to launch their malicious software at the request of the calling program.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/009">Path Interception by Unquoted Path</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary's executable to launch.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/010">.010</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/010">Services File Permissions Weakness</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the binaries used by services. Adversaries may use flaws in the permissions of Windows services to replace the binary that is executed upon service start. These service processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/011">Services Registry Permissions Weakness</a></td>
+<td>Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Adversaries may use flaws in the permissions for Registry keys related to services to redirect from the originally specified executable to one that they control, in order to launch their own code when a service starts. Windows stores local service configuration information in the Registry under <code>HKLM\SYSTEM\CurrentControlSet\Services</code>. The information stored under a service's Registry keys can be manipulated to modify a service's execution parameters through tools such as the service controller, sc.exe, <a href="https://attack.mitre.org/techniques/T1059/001">PowerShell</a>, or <a href="https://attack.mitre.org/software/S0075">Reg</a>. Access to Registry keys is controlled through access control lists and user permissions.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/012">COR_PROFILER</a></td>
+<td>Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR. The COR_PROFILER is a .NET Framework feature which allows developers to specify an unmanaged (or external of .NET) profiling DLL to be loaded into each .NET process that loads the Common Language Runtime (CLR). These profilers are designed to monitor, troubleshoot, and debug managed code executed by the .NET CLR.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1574/013">KernelCallbackTable</a></td>
+<td>Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijack its execution flow in order to run their own payloads. The <code>KernelCallbackTable</code> can be found in the Process Environment Block (PEB) and is initialized to an array of graphic functions available to a GUI process once <code>user32.dll</code> is loaded.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1055">T1055</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055">Process Injection</a></td>
+<td>Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges. Process injection is a method of executing arbitrary code in the address space of a separate live process. Running code in the context of another process may allow access to the process's memory, system/network resources, and possibly elevated privileges. Execution via process injection may also evade detection from security products since the execution is masked under a legitimate process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/001">Dynamic-link Library Injection</a></td>
+<td>Adversaries may inject dynamic-link libraries (DLLs) into processes in order to evade process-based defenses as well as possibly elevate privileges. DLL injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/002">Portable Executable Injection</a></td>
+<td>Adversaries may inject portable executables (PE) into processes in order to evade process-based defenses as well as possibly elevate privileges. PE injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/003">Thread Execution Hijacking</a></td>
+<td>Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/004">Asynchronous Procedure Call</a></td>
+<td>Adversaries may inject malicious code into processes via the asynchronous procedure call (APC) queue in order to evade process-based defenses as well as possibly elevate privileges. APC injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/005">Thread Local Storage</a></td>
+<td>Adversaries may inject malicious code into processes via thread local storage (TLS) callbacks in order to evade process-based defenses as well as possibly elevate privileges. TLS callback injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/008">.008</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/008">Ptrace System Calls</a></td>
+<td>Adversaries may inject malicious code into processes via ptrace (process trace) system calls in order to evade process-based defenses as well as possibly elevate privileges. Ptrace system call injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/009">.009</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/009">Proc Memory</a></td>
+<td>Adversaries may inject malicious code into processes via the /proc filesystem in order to evade process-based defenses as well as possibly elevate privileges. Proc memory injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/011">.011</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/011">Extra Window Memory Injection</a></td>
+<td>Adversaries may inject malicious code into process via Extra Window Memory (EWM) in order to evade process-based defenses as well as possibly elevate privileges. EWM injection is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/012">.012</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/012">Process Hollowing</a></td>
+<td>Adversaries may inject malicious code into suspended and hollowed processes in order to evade process-based defenses. Process hollowing is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/013">.013</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/013">Process Doppelgänging</a></td>
+<td>Adversaries may inject malicious code into process via process doppelgänging in order to evade process-based defenses as well as possibly elevate privileges. Process doppelgänging is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/014">.014</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/014">VDSO Hijacking</a></td>
+<td>Adversaries may inject malicious code into processes via VDSO hijacking in order to evade process-based defenses as well as possibly elevate privileges. Virtual dynamic shared object (vdso) hijacking is a method of executing arbitrary code in the address space of a separate live process.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/015">.015</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1055/015">ListPlanting</a></td>
+<td>Adversaries may abuse list-view controls to inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. ListPlanting is a method of executing arbitrary code in the address space of a separate live process. Code executed via ListPlanting may also evade detection from security products since the execution is masked under a legitimate process.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1053">T1053</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053">Scheduled Task/Job</a></td>
+<td>Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code. Utilities exist within all major operating systems to schedule programs or scripts to be executed at a specified date and time. A task can also be scheduled on a remote system, provided the proper authentication is met (ex: RPC and file and printer sharing in Windows environments). Scheduling a task on a remote system typically may require being a member of an admin or otherwise privileged group on the remote system.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/002">At</a></td>
+<td>Adversaries may abuse the <a href="https://attack.mitre.org/software/S0110">at</a> utility to perform task scheduling for initial or recurring execution of malicious code. The <a href="https://attack.mitre.org/software/S0110">at</a> utility exists as an executable within Windows, Linux, and macOS for scheduling tasks at a specified time and date. Although deprecated in favor of <a href="https://attack.mitre.org/techniques/T1053/005">Scheduled Task</a>'s <a href="https://attack.mitre.org/software/S0111">schtasks</a> in Windows environments, using <a href="https://attack.mitre.org/software/S0110">at</a> requires that the Task Scheduler service be running, and the user to be logged on as a member of the local Administrators group.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/003">Cron</a></td>
+<td>Adversaries may abuse the <code>cron</code> utility to perform task scheduling for initial or recurring execution of malicious code. The <code>cron</code> utility is a time-based job scheduler for Unix-like operating systems. The <code>crontab</code> file contains the schedule of cron entries to be run and the specified times for execution. Any <code>crontab</code> files are stored in operating system-specific file paths.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/005">.005</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/005">Scheduled Task</a></td>
+<td>Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code. There are multiple ways to access the Task Scheduler in Windows. The <a href="https://attack.mitre.org/software/S0111">schtasks</a> utility can be run directly on the command line, or the Task Scheduler can be opened through the GUI within the Administrator Tools section of the Control Panel. In some cases, adversaries have used a .NET wrapper for the Windows Task Scheduler, and alternatively, adversaries have used the Windows netapi32 library to create a scheduled task.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/006">.006</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/006">Systemd Timers</a></td>
+<td>Adversaries may abuse systemd timers to perform task scheduling for initial or recurring execution of malicious code. Systemd timers are unit files with file extension <code>.timer</code> that control services. Timers can be set to run on a calendar event or after a time span relative to a starting point. They can be used as an alternative to <a href="https://attack.mitre.org/techniques/T1053/003">Cron</a> in Linux environments. Systemd timers may be activated remotely via the <code>systemctl</code> command line utility, which operates over <a href="https://attack.mitre.org/techniques/T1021/004">SSH</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/007">.007</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1053/007">Container Orchestration Job</a></td>
+<td>Adversaries may abuse task scheduling functionality provided by container orchestration tools such as Kubernetes to schedule deployment of containers configured to execute malicious code. Container orchestration jobs run these automated tasks at a specific date and time, similar to cron jobs on a Linux system. Deployments of this type can also be configured to maintain a quantity of containers over time, automating the process of maintaining persistence within a cluster.</td>
+</tr>
+<tr>
+<td><a href="https://attack.mitre.org/techniques/T1078">T1078</a></td>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078">Valid Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Compromised credentials may be used to bypass access controls placed on various resources on systems within the network and may even be used for persistent access to remote systems and externally available services, such as VPNs, Outlook Web Access, network devices, and remote desktop. Compromised credentials may also grant an adversary increased privilege to specific systems or access to restricted areas of the network. Adversaries may choose not to use malware or tools in conjunction with the legitimate access those credentials provide to make it harder to detect their presence.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">.001</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/001">Default Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems. Default accounts also include default factory/provider set accounts on other types of systems, software, or devices, including the root user account in AWS and the default service account in Kubernetes.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">.002</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/002">Domain Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover users, administrators, and services.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">.003</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/003">Local Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">.004</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1078/004">Cloud Accounts</a></td>
+<td>Adversaries may obtain and abuse credentials of a cloud account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application. In some cases, cloud accounts may be federated with traditional identity management systems, such as Windows Active Directory.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../Persistence/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 持续控制" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              持续控制
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../DefenseEvasion/" class="md-footer__link md-footer__link--next" aria-label="下一页: 防御规避" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              防御规避
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>

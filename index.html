@@ -1,0 +1,1828 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>ATT&CK 中文版 - ATT&CK 中文版</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family="LXGW+WenKai+Screen",system-ui,"Microsoft+Yahei","Segoe+UI",-apple-system,Roboto,Ubuntu,"Helvetica+Neue",Arial,"WenQuanYi+Micro+Hei",sans-serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:""LXGW WenKai Screen",system-ui,"Microsoft Yahei","Segoe UI",-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,"WenQuanYi Micro Hei",sans-serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#attck" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="." title="ATT&amp;CK 中文版" class="md-header__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATT&CK 中文版
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ATT&CK 中文版
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        ATT&CK
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Enterprise/Tactics/Reconnaissance/" class="md-tabs__link">
+        Tactics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="ATT&amp;CK 中文版" class="md-nav__button md-logo" aria-label="ATT&CK 中文版" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    ATT&CK 中文版
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href=".">ATT&CK</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="ATT&CK" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ATT&CK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Reconnaissance/">Tactics</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tactics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tactics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Reconnaissance/">侦察目标</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侦察目标" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          侦察目标
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/ResourceDevelopment/">资源准备</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="资源准备" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          资源准备
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/InitialAccess/">初始入口</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="初始入口" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          初始入口
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Execution/">执行攻击</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="执行攻击" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          执行攻击
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Persistence/">持续控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="持续控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          持续控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/PrivilegeEscalation/">权限提升</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="权限提升" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          权限提升
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/DefenseEvasion/">防御规避</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="防御规避" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          防御规避
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/CredentialAccess/">凭据访问</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="凭据访问" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          凭据访问
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Discovery/">环境观察</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="环境观察" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          环境观察
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/LateralMovement/">横向移动</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="横向移动" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          横向移动
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Collection/">收集信息</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="收集信息" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          收集信息
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/CommandandControl/">命令与控制</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="命令与控制" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          命令与控制
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Exfiltration/">窃取数据</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="窃取数据" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          窃取数据
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Enterprise/Tactics/Impact/">侵害破坏</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="侵害破坏" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          侵害破坏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="attck">ATT&amp;CK 中文版</h1>
+<table>
+<thead>
+<tr>
+<th><a href="Enterprise/Tactics/Reconnaissance/">侦察目标</a></th>
+<th><a href="Enterprise/Tactics/ResourceDevelopment/">资源准备</a></th>
+<th><a href="Enterprise/Tactics/InitialAccess/">初始入口</a></th>
+<th><a href="Enterprise/Tactics/Execution/">执行攻击</a></th>
+<th><a href="Enterprise/Tactics/Persistence/">持续控制</a></th>
+<th><a href="Enterprise/Tactics/PrivilegeEscalation/">权限提升</a></th>
+<th><a href="Enterprise/Tactics/DefenseEvasion/">防御规避</a></th>
+<th><a href="Enterprise/Tactics/CredentialAccess/">凭据访问</a></th>
+<th><a href="Enterprise/Tactics/Discovery/">环境观察</a></th>
+<th><a href="Enterprise/Tactics/LateralMovement/">横向移动</a></th>
+<th><a href="Enterprise/Tactics/Collection/">收集信息</a></th>
+<th><a href="Enterprise/Tactics/CommandandControl/">命令与控制</a></th>
+<th><a href="Enterprise/Tactics/Exfiltration/">窃取数据</a></th>
+<th><a href="Enterprise/Tactics/Impact/">侵害影响</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">主动扫描</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">获取访问权限</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">水坑攻击</a></td>
+<td><a href="Enterprise/Tactics/Execution/">云管理命令</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">账户操纵</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">滥用权限机制</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">滥用提升控制机制</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">中间人</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">帐户发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">利用远程服务</a></td>
+<td><a href="Enterprise/Tactics/Collection/">中间人</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">应用层协议</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">自动渗透</a></td>
+<td><a href="Enterprise/Tactics/Impact/">帐户访问权限删除</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">主机信息</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">获取基础架构</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">利用公开漏洞</a></td>
+<td><a href="Enterprise/Tactics/Execution/">命令和脚本</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">BITS</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">访问令牌操作</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">访问令牌操作</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">蛮力</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">应用程序窗口发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">内部鱼叉式钓鱼</a></td>
+<td><a href="Enterprise/Tactics/Collection/">存档收集的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">可移动媒体通信</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">数据传输大小限制</a></td>
+<td><a href="Enterprise/Tactics/Impact/">数据销毁</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">身份信息</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">泄露帐户</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">外部远程服务</a></td>
+<td><a href="Enterprise/Tactics/Execution/">容器管理命令</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">自启动执行</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">自启动执行</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">BITS</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">存储中的凭据</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">浏览器信息发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">横向转移</a></td>
+<td><a href="Enterprise/Tactics/Collection/">音频捕获</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">数据编码</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">替代协议的渗透</a></td>
+<td><a href="Enterprise/Tactics/Impact/">加密的数据</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">网络信息</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">失陷基础架构</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">硬件添加</a></td>
+<td><a href="Enterprise/Tactics/Execution/">部署容器</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">初始化脚本</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">初始化脚本</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">在主机上构建映像</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">利用凭据访问</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">云基础架构发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">远程服务会话劫持</a></td>
+<td><a href="Enterprise/Tactics/Collection/">自动收集</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">数据混淆</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">C2通道渗出</a></td>
+<td><a href="Enterprise/Tactics/Impact/">数据操作</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">组织信息</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">开发能力</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">网络钓鱼</a></td>
+<td><a href="Enterprise/Tactics/Execution/">客户端执行</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">浏览器扩展</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">修改系统进程</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">调试器规避</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">强制身份验证</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">云服务仪表板</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">远程服务</a></td>
+<td><a href="Enterprise/Tactics/Collection/">浏览器会话劫持</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">动态分辨率</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">其他网络介质</a></td>
+<td><a href="Enterprise/Tactics/Impact/">恐吓误导</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">网络钓鱼获取信息</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">建立账户</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">可移动媒体</a></td>
+<td><a href="Enterprise/Tactics/Execution/">进程间通信</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">泄露客户端</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">域策略修改</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">对文件解密/解码</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">伪造网络凭据</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">云服务发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">可移动媒体</a></td>
+<td><a href="Enterprise/Tactics/Collection/">剪贴板数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">加密通道</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">物理介质上渗出</a></td>
+<td><a href="Enterprise/Tactics/Impact/">磁盘擦除</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">搜索闭源</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">获取能力</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">供应链攻击</a></td>
+<td><a href="Enterprise/Tactics/Execution/">原生接口</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">创建帐户</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">逃逸主机</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">部署容器</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">输入捕获</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">云存储对象发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">软件部署工具</a></td>
+<td><a href="Enterprise/Tactics/Collection/">云存储的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">回退通道</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">Web服务渗出</a></td>
+<td><a href="Enterprise/Tactics/Impact/">终端拒绝服务</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">搜索开放技术数据库</a></td>
+<td><a href="Enterprise/Tactics/ResourceDevelopment/">投放能力</a></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">信任关系</a></td>
+<td><a href="Enterprise/Tactics/Execution/">计划任务</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">系统进程</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">事件触发执行</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">直接卷访问</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">修改验证过程</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">容器和资源发现</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">污染共享内容</a></td>
+<td><a href="Enterprise/Tactics/Collection/">配置存储库的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">入口工具传输</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">定时接送</a></td>
+<td><a href="Enterprise/Tactics/Impact/">固件损坏</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">搜索开放网站/域</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/InitialAccess/">有效帐户</a></td>
+<td><a href="Enterprise/Tactics/Execution/">无服务执行</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">事件触发</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">利用特权升级</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">域策略修改</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">多重验证拦截</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">调试器规避</a></td>
+<td><a href="Enterprise/Tactics/LateralMovement/">备用身份验证材料</a></td>
+<td><a href="Enterprise/Tactics/Collection/">信息存储库的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">多级通道</a></td>
+<td><a href="Enterprise/Tactics/Exfiltration/">数据传输到云帐户</a></td>
+<td><a href="Enterprise/Tactics/Impact/">抑制系统恢复</a></td>
+</tr>
+<tr>
+<td><a href="Enterprise/Tactics/Reconnaissance/">搜索拥有的网站</a></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Execution/">共享模块</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">外部远程服务</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">劫持执行流程</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">组策略修改</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">多重验证请求生成</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">设备驱动程序发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">本地系统的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">非应用层协议</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Impact/">网络拒绝服务</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Execution/">软件部署工具</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">劫持执行流程</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">注入进程</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">域信任修改</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">网络嗅探</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">域信任发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">共享云端硬盘的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">非标端口</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Impact/">资源劫持</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Execution/">系统服务</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">植入容器镜像</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">计划任务/作业</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">执行护栏</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">凭据转储</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">文件和目录发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">可移动媒体的数据</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">协议隧道</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Impact/">服务停止</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Execution/">用户执行</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">修改验证过程</a></td>
+<td><a href="Enterprise/Tactics/PrivilegeEscalation/">有效账户</a></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">防御规避利用</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">窃取访问令牌</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">组策略发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">数据暂存</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">代理</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Impact/">系统关机/重启</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Execution/">WMI</a></td>
+<td><a href="Enterprise/Tactics/Persistence/">办公应用启动</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">文件和目录权限修改</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">伪造身份证书</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">网络服务发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">电子邮件收集</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">远程访问软件</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Persistence/">预操作系统启动</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">隐藏工件</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">伪造票据</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">网络共享发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">输入捕获</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">流量信号</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Persistence/">计划任务/作业</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">劫持执行流程</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">窃取网络会话</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">网络嗅探</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">屏幕截图</a></td>
+<td><a href="Enterprise/Tactics/CommandandControl/">网络服务</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Persistence/">服务器软件组件</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">损害防御</a></td>
+<td><a href="Enterprise/Tactics/CredentialAccess/">不安全的凭据</a></td>
+<td><a href="Enterprise/Tactics/Discovery/">密码策略发现</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Collection/">视频捕获</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Persistence/">流量信号</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">指标移除</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">外围设备</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Persistence/">有效帐户</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">间接命令执行</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">权限组发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">伪装</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">进程发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">修改验证过程</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">查询注册表</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">修改云计算基础架构</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">远程系统发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">修改注册表</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">软件发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">修改系统映像</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统信息发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">网络边界桥接</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统位置发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">混淆的文件</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统网络配置发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">Plist文件修改</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统网络连接发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">预操作系统启动</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统所有者/用户发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">注入进程</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统服务发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">反射代码加载</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">系统时间发现</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">恶意域控制器</a></td>
+<td></td>
+<td><a href="Enterprise/Tactics/Discovery/">虚拟化/沙盒规避</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">Rootkit</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">信任控制</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">系统代理执行</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">脚本代理执行</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">模板注入</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">流量信号</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">受信任的人员</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">未使用/不支持的云区域</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">使用备用身份验证材料</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">有效帐户</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">虚拟化/沙盒规避</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">削弱加密</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="Enterprise/Tactics/DefenseEvasion/">XSL 脚本处理</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ATT&amp;CK 框架信息量巨大，持续更新中...</p>
+</blockquote>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" hidden>
+      
+      
+        
+        <a href="Enterprise/Tactics/Reconnaissance/" class="md-footer__link md-footer__link--next" aria-label="下一页: None" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              None
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top"], "search": "assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>
