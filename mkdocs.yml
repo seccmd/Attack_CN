@@ -25,6 +25,8 @@ markdown_extensions:
       alternate_style: true
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9718108884365672
 extra:
   generator: true
   analytics:
