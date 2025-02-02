@@ -32,295 +32,296 @@ extra:
   analytics:
     provider: google
     property: G-3CKX8MZFEY
-nav:
-  - ATT&CK: 
-    - 'index.md'
-  - Tactics: 
-    - 'Enterprise/Tactics/Reconnaissance/index.md'
-    - 侦察目标: 
-      - 'Enterprise/Tactics/Reconnaissance/index.md'
-      # - 主动扫描: 'https://attack.mitre.org/techniques/T1595'
-      # - 主机信息收集: 'https://attack.mitre.org/techniques/T1592'
-      # - 身份信息收集: 'https://attack.mitre.org/techniques/T1589'
-      # - 网络信息收集: 'https://attack.mitre.org/techniques/T1590'
-      # - 组织信息收集: 'https://attack.mitre.org/techniques/T1591'
-      # - 网络钓鱼获取信息: 'https://attack.mitre.org/techniques/T1598'
-      # - 搜索闭源: 'https://attack.mitre.org/techniques/T1597'
-      # - 搜索开放技术数据库: 'https://attack.mitre.org/techniques/T1596'
-      # - 搜索开放网站/域: 'https://attack.mitre.org/techniques/T1593'
-      # - 搜索拥有的网站: 'https://attack.mitre.org/techniques/T1594'
-    - 资源准备: 
-      - 'Enterprise/Tactics/ResourceDevelopment/index.md'
-      # - 获取访问权限: 'https://attack.mitre.org/techniques/T1650'
-      # - 获取基础架构: 'https://attack.mitre.org/techniques/T1583'
-      # - 泄露帐户: 'https://attack.mitre.org/techniques/T1586'
-      # - 失陷基础架构: 'https://attack.mitre.org/techniques/T1584'
-      # - 开发能力: 'https://attack.mitre.org/techniques/T1587'
-      # - 建立账户: 'https://attack.mitre.org/techniques/T1585'
-      # - 获取能力: 'https://attack.mitre.org/techniques/T1588'
-      # - 投放能力: 'https://attack.mitre.org/techniques/T1608'
+# nav:
+#   - ATT&CK: 
+#     - 'index.md'
+#   - Tactics: 
+#     - 'Enterprise/Tactics/Reconnaissance/index.md'
+#     - 侦察目标: 
+#       - 'Enterprise/Tactics/Reconnaissance/index.md'
+#       # - 主动扫描: 'https://attack.mitre.org/techniques/T1595'
+#       # - 主机信息收集: 'https://attack.mitre.org/techniques/T1592'
+#       # - 身份信息收集: 'https://attack.mitre.org/techniques/T1589'
+#       # - 网络信息收集: 'https://attack.mitre.org/techniques/T1590'
+#       # - 组织信息收集: 'https://attack.mitre.org/techniques/T1591'
+#       # - 网络钓鱼获取信息: 'https://attack.mitre.org/techniques/T1598'
+#       # - 搜索闭源: 'https://attack.mitre.org/techniques/T1597'
+#       # - 搜索开放技术数据库: 'https://attack.mitre.org/techniques/T1596'
+#       # - 搜索开放网站/域: 'https://attack.mitre.org/techniques/T1593'
+#       # - 搜索拥有的网站: 'https://attack.mitre.org/techniques/T1594'
+#     - 资源准备: 
+#       - 'Enterprise/Tactics/ResourceDevelopment/index.md'
+#       # - 获取访问权限: 'https://attack.mitre.org/techniques/T1650'
+#       # - 获取基础架构: 'https://attack.mitre.org/techniques/T1583'
+#       # - 泄露帐户: 'https://attack.mitre.org/techniques/T1586'
+#       # - 失陷基础架构: 'https://attack.mitre.org/techniques/T1584'
+#       # - 开发能力: 'https://attack.mitre.org/techniques/T1587'
+#       # - 建立账户: 'https://attack.mitre.org/techniques/T1585'
+#       # - 获取能力: 'https://attack.mitre.org/techniques/T1588'
+#       # - 投放能力: 'https://attack.mitre.org/techniques/T1608'
 
-    - 初始入口: 
-      - 'Enterprise/Tactics/InitialAccess/index.md'
-      # - 水坑攻击: 'https://attack.mitre.org/techniques/T1189'
-      # - 利用公开漏洞: 'https://attack.mitre.org/techniques/T1190'
-      # - 外部远程服务: 'https://attack.mitre.org/techniques/T1133'
-      # - 硬件添加: 'https://attack.mitre.org/techniques/T1200'
-      # - 网络钓鱼: 'https://attack.mitre.org/techniques/T1566'
-      # - 可移动媒体: 'https://attack.mitre.org/techniques/T1091'
-      # - 供应链攻击: 'https://attack.mitre.org/techniques/T1195'
-      # - 信任关系: 'https://attack.mitre.org/techniques/T1199'
-      # - 有效帐户: 'https://attack.mitre.org/techniques/T1078'
+#     - 初始入口: 
+#       - 'Enterprise/Tactics/InitialAccess/index.md'
+#       # - 水坑攻击: 'https://attack.mitre.org/techniques/T1189'
+#       # - 利用公开漏洞: 'https://attack.mitre.org/techniques/T1190'
+#       # - 外部远程服务: 'https://attack.mitre.org/techniques/T1133'
+#       # - 硬件添加: 'https://attack.mitre.org/techniques/T1200'
+#       # - 网络钓鱼: 'https://attack.mitre.org/techniques/T1566'
+#       # - 可移动媒体: 'https://attack.mitre.org/techniques/T1091'
+#       # - 供应链攻击: 'https://attack.mitre.org/techniques/T1195'
+#       # - 信任关系: 'https://attack.mitre.org/techniques/T1199'
+#       # - 有效帐户: 'https://attack.mitre.org/techniques/T1078'
 
-    - 执行攻击: 
-      - 'Enterprise/Tactics/Execution/index.md'
-      # - 云管理命令: 'https://attack.mitre.org/techniques/T1651'
-      # - 命令和脚本: 'https://attack.mitre.org/techniques/T1059'
-      # - 容器管理命令: 'https://attack.mitre.org/techniques/T1609'
-      # - 部署容器: 'https://attack.mitre.org/techniques/T1610'
-      # - 客户端执行: 'https://attack.mitre.org/techniques/T1203'
-      # - 进程间通信: 'https://attack.mitre.org/techniques/T1559'
-      # - 原生接口: 'https://attack.mitre.org/techniques/T1106'
-      # - 计划任务: 'https://attack.mitre.org/techniques/T1053'
-      # - 无服务执行: 'https://attack.mitre.org/techniques/T1648'
-      # - 共享模块: 'https://attack.mitre.org/techniques/T1129'
-      # - 软件部署工具: 'https://attack.mitre.org/techniques/T1072'
-      # - 系统服务: 'https://attack.mitre.org/techniques/T1569'
-      # - 用户执行: 'https://attack.mitre.org/techniques/T1204'
-      # - WMI: 'https://attack.mitre.org/techniques/T1047'
+#     - 执行攻击: 
+#       - 'Enterprise/Tactics/Execution/index.md'
+#       # - 云管理命令: 'https://attack.mitre.org/techniques/T1651'
+#       # - 命令和脚本: 'https://attack.mitre.org/techniques/T1059'
+#       # - 容器管理命令: 'https://attack.mitre.org/techniques/T1609'
+#       # - 部署容器: 'https://attack.mitre.org/techniques/T1610'
+#       # - 客户端执行: 'https://attack.mitre.org/techniques/T1203'
+#       # - 进程间通信: 'https://attack.mitre.org/techniques/T1559'
+#       # - 原生接口: 'https://attack.mitre.org/techniques/T1106'
+#       # - 计划任务: 'https://attack.mitre.org/techniques/T1053'
+#       # - 无服务执行: 'https://attack.mitre.org/techniques/T1648'
+#       # - 共享模块: 'https://attack.mitre.org/techniques/T1129'
+#       # - 软件部署工具: 'https://attack.mitre.org/techniques/T1072'
+#       # - 系统服务: 'https://attack.mitre.org/techniques/T1569'
+#       # - 用户执行: 'https://attack.mitre.org/techniques/T1204'
+#       # - WMI: 'https://attack.mitre.org/techniques/T1047'
 
-    - 持续控制: 
-       - 'Enterprise/Tactics/Persistence/index.md'
-      # - 账户操纵: https://attack.mitre.org/techniques/T1098
-      # - 位作业: https://attack.mitre.org/techniques/T1197
-      # - 自动启动: https://attack.mitre.org/techniques/T1547
-      # - 初始化脚本: https://attack.mitre.org/techniques/T1037
-      # - 浏览器扩展: https://attack.mitre.org/techniques/T1176
-      # - 泄露客户端: https://attack.mitre.org/techniques/T1554
-      # - 创建帐户: https://attack.mitre.org/techniques/T1136
-      # - 系统进程: https://attack.mitre.org/techniques/T1543
-      # - 事件触发: https://attack.mitre.org/techniques/T1546
-      # - 外部远程服务: https://attack.mitre.org/techniques/T1133
-      # - 劫持执行流程: https://attack.mitre.org/techniques/T1574
-      # - 植入容器镜像: https://attack.mitre.org/techniques/T1525
-      # - 修改身份验证过程: https://attack.mitre.org/techniques/T1556
-      # - 办公应用启动: https://attack.mitre.org/techniques/T1137
-      # - 预操作系统启动: https://attack.mitre.org/techniques/T1542
-      # - 计划任务/作业: https://attack.mitre.org/techniques/T1053
-      # - 服务器软件组件: https://attack.mitre.org/techniques/T1505
-      # - 流量信号: https://attack.mitre.org/techniques/T1205
-      # - 有效帐户: https://attack.mitre.org/techniques/T1078
+#     - 持续控制: 
+#        - 'Enterprise/Tactics/Persistence/index.md'
+#       # - 账户操纵: https://attack.mitre.org/techniques/T1098
+#       # - 位作业: https://attack.mitre.org/techniques/T1197
+#       # - 自动启动: https://attack.mitre.org/techniques/T1547
+#       # - 初始化脚本: https://attack.mitre.org/techniques/T1037
+#       # - 浏览器扩展: https://attack.mitre.org/techniques/T1176
+#       # - 泄露客户端: https://attack.mitre.org/techniques/T1554
+#       # - 创建帐户: https://attack.mitre.org/techniques/T1136
+#       # - 系统进程: https://attack.mitre.org/techniques/T1543
+#       # - 事件触发: https://attack.mitre.org/techniques/T1546
+#       # - 外部远程服务: https://attack.mitre.org/techniques/T1133
+#       # - 劫持执行流程: https://attack.mitre.org/techniques/T1574
+#       # - 植入容器镜像: https://attack.mitre.org/techniques/T1525
+#       # - 修改身份验证过程: https://attack.mitre.org/techniques/T1556
+#       # - 办公应用启动: https://attack.mitre.org/techniques/T1137
+#       # - 预操作系统启动: https://attack.mitre.org/techniques/T1542
+#       # - 计划任务/作业: https://attack.mitre.org/techniques/T1053
+#       # - 服务器软件组件: https://attack.mitre.org/techniques/T1505
+#       # - 流量信号: https://attack.mitre.org/techniques/T1205
+#       # - 有效帐户: https://attack.mitre.org/techniques/T1078
 
-    - 权限提升: 
-      - 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 滥用权限机制: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 访问令牌操作: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 启动或登录自动启动执行: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 启动或登录初始化脚本: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 创建或修改系统进程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 域策略修改: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 逃逸主机: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 事件触发的执行: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 利用特权升级: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 劫持执行流程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 注入进程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 计划任务/作业: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
-      # - 有效账户: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#     - 权限提升: 
+#       - 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 滥用权限机制: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 访问令牌操作: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 启动或登录自动启动执行: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 启动或登录初始化脚本: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 创建或修改系统进程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 域策略修改: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 逃逸主机: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 事件触发的执行: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 利用特权升级: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 劫持执行流程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 注入进程: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 计划任务/作业: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
+#       # - 有效账户: 'Enterprise/Tactics/PrivilegeEscalation/index.md'
 
-    - 防御规避: 
-      - 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 滥用提升控制机制 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 访问令牌操作 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 位作业 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 在主机上构建映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 在主机上构建映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 对文件解密/解码 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 部署容器 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 直接卷访问 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 域策略修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 组策略修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 域信任修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 执行护栏 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 用于防御规避的利用 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 文件和目录权限修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 隐藏工件 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 劫持执行流程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 损害防御 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 指标移除 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 间接命令执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 伪装 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 修改身份验证过程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 修改云计算基础架构 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 修改注册表 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 修改系统映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 网络边界桥接 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 混淆的文件 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - Plist文件修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 预操作系统启动 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 注入进程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 反射代码加载 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 恶意域控制器 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - Rootkit : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 信任控制 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 系统代理执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 脚本代理执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 模板注入 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 流量信号 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 受信任的人员 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 未使用/不支持的云区域 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 使用备用身份验证材料 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 有效帐户 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 虚拟化/沙盒规避 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - 削弱加密 : 'Enterprise/Tactics/DefenseEvasion/index.md'
-      # - XSL 脚本处理 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#     - 防御规避: 
+#       - 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 滥用提升控制机制 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 访问令牌操作 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 位作业 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 在主机上构建映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 在主机上构建映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 对文件解密/解码 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 部署容器 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 直接卷访问 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 域策略修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 组策略修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 域信任修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 执行护栏 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 用于防御规避的利用 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 文件和目录权限修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 隐藏工件 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 劫持执行流程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 损害防御 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 指标移除 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 间接命令执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 伪装 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 修改身份验证过程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 修改云计算基础架构 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 修改注册表 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 修改系统映像 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 网络边界桥接 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 混淆的文件 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - Plist文件修改 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 预操作系统启动 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 注入进程 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 反射代码加载 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 恶意域控制器 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - Rootkit : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 信任控制 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 系统代理执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 脚本代理执行 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 模板注入 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 流量信号 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 受信任的人员 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 未使用/不支持的云区域 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 使用备用身份验证材料 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 有效帐户 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 虚拟化/沙盒规避 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - 削弱加密 : 'Enterprise/Tactics/DefenseEvasion/index.md'
+#       # - XSL 脚本处理 : 'Enterprise/Tactics/DefenseEvasion/index.md'
       
-    - 凭据访问: 
-      - 'Enterprise/Tactics/CredentialAccess/index.md'
-      # - 中间人: 
-      # - 蛮力: 
-      # - 存储中的凭据: 
-      # - 利用凭据访问: 
-      # - 强制身份验证: 
-      # - 伪造网络凭据: 
-      # - 输入捕获: 
-      # - 修改验证过程: 
-      # - 多重验证拦截: 
-      # - 多重验证请求生成: 
-      # - 网络嗅探: 
-      # - 凭据转储: 
-      # - 窃取访问令牌: 
-      # - 伪造身份证书: 
-      # - 伪造票据: 
-      # - 窃取网络会话: 
-      # - 不安全的凭据: `
-    - 环境观察: 
-      - 'Enterprise/Tactics/Discovery/index.md'
-#帐户发现
-#应用程序窗口发现
-#浏览器信息发现
-#云基础架构发现
-#云服务仪表板
-#云服务发现
-#云存储对象发现
-#容器和资源发现
-#调试器规避
-#设备驱动程序发现
-#域信任发现
-#文件和目录发现
-#组策略发现
-#网络服务发现
-#网络共享发现
-#网络嗅探
-#密码策略发现
-#外围设备发现
-#权限组发现
-#进程发现
-#查询注册表
-#远程系统发现
-#软件发现
-#系统信息发现	
-#系统位置发现
-#系统网络配置发现
-#系统网络连接发现
-#系统所有者/用户发现
-#系统服务发现
-#系统时间发现
-#虚拟化/沙盒规避
-    - 横向移动: 
-      - 'Enterprise/Tactics/LateralMovement/index.md'
-#利用远程服务
-#内部鱼叉式钓鱼
-#横向转移
-#远程服务会话劫持
-#远程服务
-#可移动媒体
-#软件部署工具
-#污点共享内容
-#备用身份验证材料
-    - 收集信息: 
-      - 'Enterprise/Tactics/Collection/index.md'
-#中间人
-#存档收集的数据
-#音频捕获
-#自动收集
-#浏览器会话劫持
-#剪贴板数据
-#云存储的数据
-#配置存储库的数据
-#信息存储库的数据
-#本地系统的数据
-#共享云端硬盘的数据
-#可移动媒体的数据
-#数据暂存
-#电子邮件收集
-#输入捕获
-#屏幕截图
-#视频捕获
-    - 命令与控制: 
-      - 'Enterprise/Tactics/CommandandControl/index.md'
-#应用层协议
-#可移动媒体通信
-#数据编码
-#数据混淆
-#动态分辨率
-#加密通道
-#回退通道
-#入口工具传输
-#多级通道
-#非应用层协议
-#非标端口
-#协议隧道
-#代理
-#远程访问软件
-#流量信号
-#网络服务
-    - 窃取数据: 
-      - 'Enterprise/Tactics/Exfiltration/index.md'
-#自动渗透
-#数据传输大小限制
-#替代协议的渗透
-#C2通道渗出
-#其他网络介质
-#物理介质上渗出
-#Web服务渗透
-#定时接送
-#数据传输到云帐户
-    - 侵害破坏: 
-      - 'Enterprise/Tactics/Impact/index.md'
-#帐户访问权限删除
-#数据销毁
-#加密的数据
-#数据操作
-#污损
-#磁盘擦除
-#终端拒绝服务
-#固件损坏
-#抑制系统恢复
-#网络拒绝服务
-#资源劫持
-#服务停止
-#系统关机/重启
-    # - Windows 应急命令:
-    #   - 'get/windows/windows-logs.md'
-    #   - 'get/windows/windows-network.md'
-    #   - 'get/windows/windows-firewall.md'
-    #   - 'get/windows/windows-tasks.md'
-    #   - 'get/windows/windows-boot.md'
-    #   - 'get/windows/windows-procs.md'
-    #   - 'get/windows/windows-service.md'
-    #   - 'get/windows/windows-users.md'
-    # - Linux 应急命令:
-    #   - 'get/linux/linux-logs.md'
-    #   - 'get/linux/linux-network.md'
-    #   - 'get/linux/linux-firewall.md'
-    #   - 'get/linux/linux-tasks.md'
-    #   - 'get/linux/linux-boot.md'
-    #   - 'get/linux/linux-procs.md'
-    #   - 'get/linux/linux-service.md'
-    #   - 'get/linux/linux-users.md'
-    # - Impact:
-    #   - 'tactics/Impact/index.md'
-    #   - Data destruction: 'techniques/Data destruction.md'
-    #   - Resource hijacking: 'techniques/Resource hijacking.md'
-    #   - Denial of service: 'techniques/Denial of service.md'
-  - About: 'about.md'
+#     - 凭据访问: 
+#       - 'Enterprise/Tactics/CredentialAccess/index.md'
+#       # - 中间人: 
+#       # - 蛮力: 
+#       # - 存储中的凭据: 
+#       # - 利用凭据访问: 
+#       # - 强制身份验证: 
+#       # - 伪造网络凭据: 
+#       # - 输入捕获: 
+#       # - 修改验证过程: 
+#       # - 多重验证拦截: 
+#       # - 多重验证请求生成: 
+#       # - 网络嗅探: 
+#       # - 凭据转储: 
+#       # - 窃取访问令牌: 
+#       # - 伪造身份证书: 
+#       # - 伪造票据: 
+#       # - 窃取网络会话: 
+#       # - 不安全的凭据: `
+#     - 环境观察: 
+#       - 'Enterprise/Tactics/Discovery/index.md'
+# #帐户发现
+# #应用程序窗口发现
+# #浏览器信息发现
+# #云基础架构发现
+# #云服务仪表板
+# #云服务发现
+# #云存储对象发现
+# #容器和资源发现
+# #调试器规避
+# #设备驱动程序发现
+# #域信任发现
+# #文件和目录发现
+# #组策略发现
+# #网络服务发现
+# #网络共享发现
+# #网络嗅探
+# #密码策略发现
+# #外围设备发现
+# #权限组发现
+# #进程发现
+# #查询注册表
+# #远程系统发现
+# #软件发现
+# #系统信息发现	
+# #系统位置发现
+# #系统网络配置发现
+# #系统网络连接发现
+# #系统所有者/用户发现
+# #系统服务发现
+# #系统时间发现
+# #虚拟化/沙盒规避
+#     - 横向移动: 
+#       - 'Enterprise/Tactics/LateralMovement/index.md'
+# #利用远程服务
+# #内部鱼叉式钓鱼
+# #横向转移
+# #远程服务会话劫持
+# #远程服务
+# #可移动媒体
+# #软件部署工具
+# #污点共享内容
+# #备用身份验证材料
+#     - 收集信息: 
+#       - 'Enterprise/Tactics/Collection/index.md'
+# #中间人
+# #存档收集的数据
+# #音频捕获
+# #自动收集
+# #浏览器会话劫持
+# #剪贴板数据
+# #云存储的数据
+# #配置存储库的数据
+# #信息存储库的数据
+# #本地系统的数据
+# #共享云端硬盘的数据
+# #可移动媒体的数据
+# #数据暂存
+# #电子邮件收集
+# #输入捕获
+# #屏幕截图
+# #视频捕获
+#     - 命令与控制: 
+#       - 'Enterprise/Tactics/CommandandControl/index.md'
+# #应用层协议
+# #可移动媒体通信
+# #数据编码
+# #数据混淆
+# #动态分辨率
+# #加密通道
+# #回退通道
+# #入口工具传输
+# #多级通道
+# #非应用层协议
+# #非标端口
+# #协议隧道
+# #代理
+# #远程访问软件
+# #流量信号
+# #网络服务
+#     - 窃取数据: 
+#       - 'Enterprise/Tactics/Exfiltration/index.md'
+# #自动渗透
+# #数据传输大小限制
+# #替代协议的渗透
+# #C2通道渗出
+# #其他网络介质
+# #物理介质上渗出
+# #Web服务渗透
+# #定时接送
+# #数据传输到云帐户
+#     - 侵害破坏: 
+#       - 'Enterprise/Tactics/Impact/index.md'
+# #帐户访问权限删除
+# #数据销毁
+# #加密的数据
+# #数据操作
+# #污损
+# #磁盘擦除
+# #终端拒绝服务
+# #固件损坏
+# #抑制系统恢复
+# #网络拒绝服务
+# #资源劫持
+# #服务停止
+# #系统关机/重启
+#     # - Windows 应急命令:
+#     #   - 'get/windows/windows-logs.md'
+#     #   - 'get/windows/windows-network.md'
+#     #   - 'get/windows/windows-firewall.md'
+#     #   - 'get/windows/windows-tasks.md'
+#     #   - 'get/windows/windows-boot.md'
+#     #   - 'get/windows/windows-procs.md'
+#     #   - 'get/windows/windows-service.md'
+#     #   - 'get/windows/windows-users.md'
+#     # - Linux 应急命令:
+#     #   - 'get/linux/linux-logs.md'
+#     #   - 'get/linux/linux-network.md'
+#     #   - 'get/linux/linux-firewall.md'
+#     #   - 'get/linux/linux-tasks.md'
+#     #   - 'get/linux/linux-boot.md'
+#     #   - 'get/linux/linux-procs.md'
+#     #   - 'get/linux/linux-service.md'
+#     #   - 'get/linux/linux-users.md'
+#     # - Impact:
+#     #   - 'tactics/Impact/index.md'
+#     #   - Data destruction: 'techniques/Data destruction.md'
+#     #   - Resource hijacking: 'techniques/Resource hijacking.md'
+#     #   - Denial of service: 'techniques/Denial of service.md'
+#   - Enterprise-Attack-16.1: 'enterprise-attack-16.1/index.md'
+#   - About: 'about.md'
