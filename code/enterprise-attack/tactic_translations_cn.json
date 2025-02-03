@@ -1,0 +1,58 @@
+{
+    "Reconnaissance": {
+        "translated_name": "侦察",
+        "translated_description": "攻击者试图收集有关其目标的信息。"
+    },
+    "Resource Development": {
+        "translated_name": "资源开发",
+        "translated_description": "攻击者试图建立和维护攻击所需的资源。"
+    },
+    "Initial Access": {
+        "translated_name": "初始访问",
+        "translated_description": "攻击者试图进入目标网络。"
+    },
+    "Execution": {
+        "translated_name": "执行",
+        "translated_description": "攻击者试图在目标系统上运行恶意代码。"
+    },
+    "Persistence": {
+        "translated_name": "持久性",
+        "translated_description": "攻击者试图保持对目标系统的访问。"
+    },
+    "Privilege Escalation": {
+        "translated_name": "权限提升",
+        "translated_description": "攻击者试图获得更高的权限。"
+    },
+    "Defense Evasion": {
+        "translated_name": "防御逃避",
+        "translated_description": "攻击者试图避免被检测到。"
+    },
+    "Credential Access": {
+        "translated_name": "凭证访问",
+        "translated_description": "攻击者试图窃取账户凭证。"
+    },
+    "Discovery": {
+        "translated_name": "发现",
+        "translated_description": "攻击者试图了解目标环境。"
+    },
+    "Lateral Movement": {
+        "translated_name": "横向移动",
+        "translated_description": "攻击者试图在目标网络中移动。"
+    },
+    "Collection": {
+        "translated_name": "收集",
+        "translated_description": "攻击者试图收集目标数据。"
+    },
+    "Command and Control": {
+        "translated_name": "指挥与控制",
+        "translated_description": "攻击者试图与受感染系统通信。"
+    },
+    "Exfiltration": {
+        "translated_name": "数据外传",
+        "translated_description": "攻击者试图将数据从目标网络中取出。"
+    },
+    "Impact": {
+        "translated_name": "影响",
+        "translated_description": "攻击者试图操纵、破坏或破坏系统和数据。"
+    }
+}
